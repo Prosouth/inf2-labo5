@@ -14,6 +14,8 @@
 
 template <typename T>
 class Matrice {
+    
+public:
     Matrice() = default;
     Matrice (unsigned int lignes);
     Matrice (unsigned int lignes,unsigned int colonnes);
@@ -34,7 +36,10 @@ class Matrice {
     friend const Matrice operator * (const Matrice& m1,const Matrice& m2);
     friend const Matrice operator * (const Matrice& m2,const T& val);// les deux sens a faire (commutativite)
     friend const Matrice& operator + (Matrice& m1,const Matrice& m2);
-
+    
+private:
+    unsigned int lignes, colonnes;
+    Vecteur <T> vectLignes,vectColonnes;
 };
 
 

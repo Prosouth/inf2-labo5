@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Vecteur.hpp"
 
 template <typename T>
 class Matrice {
@@ -28,7 +29,7 @@ public:
     bool estCarre() const;
     bool estReguliere() const;
     Vecteur<T> sommeLigne();
-    Vecteur<T> sommeLigne();
+    Vecteur<T> sommeColonne();
     T sommeDiagonaleGD();
     T sommeDiagonaleDG();
     
@@ -38,7 +39,6 @@ public:
     friend const Matrice& operator + (Matrice& m1,const Matrice& m2);
     
 private:
-    unsigned int lignes, colonnes;
     Vecteur <T> vectLignes,vectColonnes;
 };
 

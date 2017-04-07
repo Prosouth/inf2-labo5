@@ -17,7 +17,7 @@ Vecteur<T>::Vecteur(const std::vector<T>& vect)
 : vecteur(vect) {}
 
 template<typename T>
-T Vecteur<T>::at(size_t n) const
+T& Vecteur<T>::at(size_t n) const
 {
     
 }

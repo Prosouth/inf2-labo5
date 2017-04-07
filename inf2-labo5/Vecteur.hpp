@@ -29,7 +29,7 @@ public:
     friend const Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
 
     
-    T at(size_t n) const;
+    T& at(size_t n) const;
     size_t size() const;
     void resize(size_t taille);
     long somme() const;

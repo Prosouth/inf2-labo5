@@ -13,9 +13,10 @@
 #include <vector>
 #include "Vecteur.hpp"
 
+
 template <typename T>
 class Matrice {
-    
+
 public:
     Matrice() = default;
     Matrice (unsigned int lignes);
@@ -28,18 +29,21 @@ public:
     bool estVide() const;
     bool estCarre() const;
     bool estReguliere() const;
+    
+    void push(unsigned int position,const T& valeur);
+    void pop( unsigned int position,const T& valeur);
     Vecteur<T> sommeLigne();
     Vecteur<T> sommeColonne();
     T sommeDiagonaleGD();
     T sommeDiagonaleDG();
     
     friend std::ostream& operator << (std::ostream& os,const Matrice& m);
-    friend const Matrice operator * (const Matrice& m1,const Matrice& m2);
-    friend const Matrice operator * (const Matrice& m2,const T& val);// les deux sens a faire (commutativite)
-    friend const Matrice& operator + (Matrice& m1,const Matrice& m2);
+    friend Matrice<T>& operator * (Matrice <T>& m1, const Matrice<T>& m2);
+    friend Matrice<T>& operator * (Matrice <T>& m1,const T& val);   // les deux sens a faire (commutativite)
+    friend Matrice<T>& operator + (Matrice& m1,const Matrice& m2);
     
 private:
-    Vecteur <T> vectLignes,vectColonnes;
+    std::vector<std::vector<T>> matrice;
 };
 
 

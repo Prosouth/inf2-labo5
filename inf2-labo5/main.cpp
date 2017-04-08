@@ -35,6 +35,8 @@ int main()
     Matrice<int> matrice2(vectNotes);
     Matrice<int> matriceIdentite(vectIdentite);
     Matrice<int> matriceAleatoire(vectAleatoire);
+    //Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
+    
     Vecteur<int> noteLaboratoire(10);
     //noteLaboratoire.
     //noteLaboratoire.somme();
@@ -47,11 +49,16 @@ int main()
     cout << matrice2.at(7) << endl;
     cout << matrice2.at(0) << endl;
     
+    cout << matrice2 << endl;
+    
+    cout << "La matrice identité est elle régulière ? :" << matriceIdentite.estReguliere() << endl;
+    
     affichervector(matriceIdentite.sommeColonne());
     affichervector(matriceAleatoire.sommeLigne());
-
     
-    cout << matrice2 << endl;
-
+    //cout << addMatrice << endl;
+    
+    cout << matriceIdentite.sommeDiagonaleGD() << endl;
+    cout << matriceIdentite.sommeDiagonaleDG() << endl;
     return EXIT_SUCCESS;
 }

@@ -20,6 +20,15 @@ template <typename T>
 std::ostream& operator << (std::ostream& os,const Matrice<T>& m);
 
 template <typename T>
+Matrice<T>& operator * (Matrice <T>& m1, const Matrice<T>& m2);
+
+template <typename T>
+Matrice<T>& operator * (Matrice <T>& m1,const T& val);
+
+template <typename T>
+Matrice<T>& operator + (const Matrice<T>& m1,const Matrice<T>& m2);
+
+template <typename T>
 class Matrice {
 
 public:
@@ -46,7 +55,7 @@ public:
     friend std::ostream& operator << <> (std::ostream& os,const Matrice<T>& m);
     friend Matrice<T>& operator * (Matrice <T>& m1, const Matrice<T>& m2);
     friend Matrice<T>& operator * (Matrice <T>& m1,const T& val);   // les deux sens a faire (commutativite)
-    friend Matrice<T>& operator + (Matrice& m1,const Matrice& m2);
+    friend Matrice<T>& operator + (const Matrice<T>& m1,const Matrice<T>& m2);
     
 private:
     std::vector<std::vector<T>> matrice;

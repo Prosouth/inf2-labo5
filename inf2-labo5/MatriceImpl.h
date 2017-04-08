@@ -69,8 +69,8 @@ bool Matrice<T>::estCarre() const {
 
 template <typename T>
 bool Matrice<T>::estReguliere() const{
-    for (T& t : matrice){
-        if (!(t.size() == matrice.at(0))){ // si une des lignes pas egale a la premiere alors pas reguliere
+    for (const vector<T>& t : matrice){
+        if (t.size() != matrice.at(0).size()){ // si la taille d'une des lignes n'est pas egale a la premiere alors la matrice n'est pas reguliere
             return false;
         }
     }
@@ -124,10 +124,12 @@ T Matrice<T>::sommeDiagonaleGD(){
     T sommeDiagonale = 0;
     for(int i = 0; i< matrice.size();i++){
         for(int j =0 ; j <matrice.at(i).size(); j++){
-            sommeDiagonale+= matrice.at(i).at(j - i - 1);
+            if(i==j){
+            sommeDiagonale+= matrice.at(i).at(j);
+            }
         }
     }
-    
+    return sommeDiagonale;
 }
 
 template <typename T>
@@ -138,9 +140,11 @@ T Matrice<T>::sommeDiagonaleDG(){
     T sommeDiagonale = 0;
     for(int i = 0; i< matrice.size();i++){
         for(int j =0 ; j <matrice.at(i).size(); j++){
-            sommeDiagonale+= matrice.at(j-i-1).at(i);
-        }
+            if(i==(matrice.at(i).size() - j)){
+                sommeDiagonale+= matrice.at(i).at(j);
+            }        }
     }
+    return sommeDiagonale;
 }
 
 template <typename T>
@@ -171,7 +175,7 @@ Matrice<T>&  operator * (Matrice <T>& m1,const T& val){// les deux sens a faire 
     return m1;
 }
 template <typename T>
-Matrice<T>&  operator + (Matrice<T>& m1,const Matrice<T>& m2){
+Matrice<T>&  operator + (const Matrice<T>& m1,const Matrice<T>& m2){
     for(int i = 0; i< m1.size();i++){
         m1.at(i)+=m2.at(i);
     }

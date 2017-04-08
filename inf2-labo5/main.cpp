@@ -51,8 +51,8 @@ int main()
     
     cout << matrice2 << endl;
     
-    cout << "La matrice identité est elle régulière ? :" << matriceIdentite.estReguliere() << endl;
-    
+    cout << "La matrice identité est elle régulière ? :" << (matriceIdentite.estReguliere() ? "oui": "non") << endl;
+    cout << "La matrice identité est elle vide ? :" << (matriceIdentite.estVide() ? "oui": "non") << endl;
     affichervector(matriceIdentite.sommeColonne());
     affichervector(matriceAleatoire.sommeLigne());
     

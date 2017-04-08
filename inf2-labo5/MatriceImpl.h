@@ -158,7 +158,7 @@ std::ostream& operator << (std::ostream& os,const Matrice<T>& m){
 }
 
 template <typename T>
-Matrice<T>& operator * (Matrice <T>& m1, const Matrice<T>& m2){
+Matrice<T>& operator * (const Matrice <T>& m1, const Matrice<T>& m2){
     for(int i = 0; i< m2.size();i++){
         for(int j =0 ; j <m2.size(); j++){
             m1.at(i).at(j) *= m2.at(i).at(j);
@@ -168,7 +168,7 @@ Matrice<T>& operator * (Matrice <T>& m1, const Matrice<T>& m2){
 }
 
 template <typename T>
-Matrice<T>&  operator * (Matrice <T>& m1,const T& val){// les deux sens a faire (commutativite)
+Matrice<T>&  operator * (const Matrice <T>& m1,const T& val){// les deux sens a faire (commutativite)
     for(int i =0; i< m1.size(); i++){
         m1.at(i) *= val;
     }

@@ -53,8 +53,8 @@ public:
     T sommeDiagonaleDG();
     
     friend std::ostream& operator << <> (std::ostream& os,const Matrice<T>& m);
-    friend Matrice<T>& operator * (Matrice <T>& m1, const Matrice<T>& m2);
-    friend Matrice<T>& operator * (Matrice <T>& m1,const T& val);   // les deux sens a faire (commutativite)
+    friend Matrice<T>& operator * (const Matrice <T>& m1, const Matrice<T>& m2);
+    friend Matrice<T>& operator * (const Matrice <T>& m1,const T& val);   // les deux sens a faire (commutativite)
     friend Matrice<T>& operator + (const Matrice<T>& m1,const Matrice<T>& m2);
     
 private:

@@ -13,13 +13,15 @@ using namespace std;
 
 int main() 
 {
-    
+    vector<vector<int>> vectNotes ={{1,2,3},{4,5,6},{7,8,9}};
     Matrice<int> matrice(5,5);
-    Matrice<double> matrice2(4,4);
+    Matrice<int> matrice2(vectNotes);
     Vecteur<int> noteLaboratoire(10);
     //noteLaboratoire.
     //noteLaboratoire.somme();
-   cout << "Hello, World!";
+    //matrice.push(0, 3);
+    
+    cout << "Hello, World!";
     cout <<matrice2 << endl;
 
     return EXIT_SUCCESS;

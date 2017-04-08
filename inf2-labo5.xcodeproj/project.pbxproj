@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		38DE34681E95399D007822FC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38DE34671E95399D007822FC /* main.cpp */; };
-		38DE34701E953A5A007822FC /* Vecteur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38DE346E1E953A5A007822FC /* Vecteur.cpp */; };
-		38DE34731E953A64007822FC /* Matrice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38DE34711E953A64007822FC /* Matrice.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,11 +23,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		383D6D7B1E97F66A00020B43 /* VecteurImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VecteurImpl.h; sourceTree = "<group>"; };
+		383D6D7C1E97F6B700020B43 /* MatriceImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatriceImpl.h; sourceTree = "<group>"; };
 		38DE34641E95399D007822FC /* inf2-labo5 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "inf2-labo5"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DE34671E95399D007822FC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		38DE346E1E953A5A007822FC /* Vecteur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vecteur.cpp; sourceTree = "<group>"; };
 		38DE346F1E953A5A007822FC /* Vecteur.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vecteur.hpp; sourceTree = "<group>"; };
-		38DE34711E953A64007822FC /* Matrice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrice.cpp; sourceTree = "<group>"; };
 		38DE34721E953A64007822FC /* Matrice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrice.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,10 +62,10 @@
 			isa = PBXGroup;
 			children = (
 				38DE34671E95399D007822FC /* main.cpp */,
-				38DE346E1E953A5A007822FC /* Vecteur.cpp */,
 				38DE346F1E953A5A007822FC /* Vecteur.hpp */,
-				38DE34711E953A64007822FC /* Matrice.cpp */,
+				383D6D7B1E97F66A00020B43 /* VecteurImpl.h */,
 				38DE34721E953A64007822FC /* Matrice.hpp */,
+				383D6D7C1E97F6B700020B43 /* MatriceImpl.h */,
 			);
 			path = "inf2-labo5";
 			sourceTree = "<group>";
@@ -129,8 +127,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38DE34731E953A64007822FC /* Matrice.cpp in Sources */,
-				38DE34701E953A5A007822FC /* Vecteur.cpp in Sources */,
 				38DE34681E95399D007822FC /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +254,7 @@
 				38DE346D1E95399D007822FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

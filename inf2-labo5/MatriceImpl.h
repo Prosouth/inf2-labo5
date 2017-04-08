@@ -1,27 +1,22 @@
 //
-//  Matrice.cpp
+//  MatriceImpl.h
 //  inf2-labo5
 //
-//  Created by Walid Koubaa on 05.04.17.
+//  Created by Walid Koubaa on 07.04.17.
 //  Copyright © 2017 Walid. All rights reserved.
 //
 
+#ifndef MatriceImpl_h
+#define MatriceImpl_h
 
 #include "Matrice.hpp"
 #include <exception>
 #include <vector>
 
-/*template <typename T>
-Matrice<T>::Matrice(){
-    this->lignes = 0;
-}
-*/
-
 using namespace std;
 
 template <typename T>
 Matrice<T>::Matrice (unsigned int lignes){
-    
     matrice=vector<T>(lignes);
 }
 
@@ -31,13 +26,18 @@ Matrice<T>::Matrice (unsigned int lignes,unsigned int colonnes){
 }
 
 template <typename T>
-T Matrice<T>::at(unsigned int position) const{
+Matrice<T>::Matrice (const vector<vector<T>>& newVector){
+    matrice=newVector;
+}
+
+template <typename T>
+ T& Matrice<T>::at(unsigned int position) const{
     return matrice.at(position / matrice.size()).at(position % matrice.size());
 }
 
 template <typename T>
 unsigned int Matrice<T>::size() const{
-    return matrice.size();
+    return (unsigned int)matrice.size();
 }
 
 template <typename T>
@@ -72,16 +72,22 @@ bool Matrice<T>::estReguliere() const{
     }
     return true;
 }
-
+/*
 template <typename T>
 void Matrice<T>::push(unsigned int position,const T& valeur){
     matrice.at(position)=valeur;
 }
-
+*/
 template <typename T>
-void pop( unsigned int position,const T& valeur){
-
+void Matrice<T>::pop( unsigned int position,const T& valeur){
+    matrice.at(position) = 0;
 }
+/*
+template <typename T>
+void Matrice<T>::affect(const std::vector<vector<T>>& newVector){
+    matrice = newVector;
+}
+*/
 
 template <typename T>
 Vecteur<T> Matrice<T>::sommeLigne(){
@@ -137,6 +143,7 @@ std::ostream& operator << (std::ostream& os,const Matrice<T>& m){
         os << m.at(i) << ", ";
     }
     os << m.at(m.size()) << "]";
+    return os;
 }
 
 template <typename T>
@@ -163,3 +170,5 @@ Matrice<T>&  operator + (Matrice<T>& m1,const Matrice<T>& m2){
     }
     return m1;
 }
+
+#endif /* MatriceImpl_h */

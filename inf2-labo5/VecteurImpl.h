@@ -1,4 +1,15 @@
 //
+//  VecteurImpl.h
+//  inf2-labo5
+//
+//  Created by Walid Koubaa on 07.04.17.
+//  Copyright © 2017 Walid. All rights reserved.
+//
+
+#ifndef VecteurImpl_h
+#define VecteurImpl_h
+
+//
 //  Vecteur.cpp
 //  inf2-labo5
 //
@@ -45,8 +56,8 @@ template<typename T>
 std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 {
     //os << vect.
-            
-            
+    
+    
     return os;
 }
 
@@ -76,3 +87,5 @@ const Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
     
     
 }// vecteur
+
+#endif /* VecteurImpl_h */

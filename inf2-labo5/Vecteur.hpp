@@ -40,6 +40,6 @@ private:
    std::vector<T> vecteur;
 };
 
-
+#include "VecteurImpl.h"
 
 #endif /* Vecteur_hpp */

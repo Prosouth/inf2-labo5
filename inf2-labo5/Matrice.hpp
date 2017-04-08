@@ -28,7 +28,7 @@ public:
     Matrice (unsigned int lignes,unsigned int colonnes);
     Matrice (const std::vector<std::vector<T>>& newVector);
     
-    T& at(unsigned int position) const;
+    const T& at(unsigned int position) const;
     unsigned int size() const;
     void resize(unsigned int nbLignes);
     void resize(unsigned int nbLignes,unsigned int nbColonnes);
@@ -36,11 +36,10 @@ public:
     bool estCarre() const;
     bool estReguliere() const;
     
-    //void affect(const std::vector<std::vector<T>>& newVector);
     //void push(unsigned int position,const T& valeur);
     void pop( unsigned int position,const T& valeur);
-    Vecteur<T> sommeLigne();
-    Vecteur<T> sommeColonne();
+    std::vector<T> sommeLigne();
+    std::vector<T> sommeColonne();
     T sommeDiagonaleGD();
     T sommeDiagonaleDG();
     

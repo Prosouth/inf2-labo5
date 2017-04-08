@@ -17,7 +17,7 @@ using namespace std;
 
 template <typename T>
 Matrice<T>::Matrice (unsigned int lignes){
-    matrice=vector<T>(lignes);
+    matrice = vector<vector<T>>(lignes);
 }
 
 template <typename T>
@@ -27,17 +27,21 @@ Matrice<T>::Matrice (unsigned int lignes,unsigned int colonnes){
 
 template <typename T>
 Matrice<T>::Matrice (const vector<vector<T>>& newVector){
-    matrice=newVector;
+    matrice = newVector;
 }
 
 template <typename T>
- T& Matrice<T>::at(unsigned int position) const{
+const T& Matrice<T>::at(unsigned int position) const{
     return matrice.at(position / matrice.size()).at(position % matrice.size());
 }
 
 template <typename T>
 unsigned int Matrice<T>::size() const{
-    return (unsigned int)matrice.size();
+    unsigned int size = 0;
+    for(const vector<T>& vect: matrice){
+        size+= vect.size();
+    }
+    return (unsigned int) size;
 }
 
 template <typename T>
@@ -80,7 +84,8 @@ void Matrice<T>::push(unsigned int position,const T& valeur){
 */
 template <typename T>
 void Matrice<T>::pop( unsigned int position,const T& valeur){
-    matrice.at(position) = 0;
+     matrice.at(position) = 0;
+   
 }
 /*
 template <typename T>
@@ -90,23 +95,25 @@ void Matrice<T>::affect(const std::vector<vector<T>>& newVector){
 */
 
 template <typename T>
-Vecteur<T> Matrice<T>::sommeLigne(){
-    Vecteur <T> tempVecteur = Vecteur<T>(matrice.size());
-    for(int i =0 ;i < tempVecteur.size();i++){
+vector<T> Matrice<T>::sommeLigne(){
+    vector<T> tempMatrice(matrice.size());
+    for(int i =0 ;i < tempMatrice.size();i++){
         for(T& t : matrice.at(i)){
-            tempVecteur.at(i) += t;
+            tempMatrice.at(i) += t;
         }
     }
+    return tempMatrice;
 }
 
 template <typename T>
-Vecteur<T> Matrice<T>::sommeColonne(){
-    Vecteur <T> tempVecteur = Vecteur<T>(matrice.size());
-    for(int i =0 ;i < tempVecteur.size();i++){
+vector<T> Matrice<T>::sommeColonne(){
+    vector<T> tempMatrice(matrice.size());
+    for(int i =0 ;i < tempMatrice.size();i++){
         for(T& t : matrice.at(i)){
-            tempVecteur.at(i) += t;
+            tempMatrice.at(i) += t;
         }
     }
+    return tempMatrice;
 }
 
 template <typename T>
@@ -139,10 +146,10 @@ T Matrice<T>::sommeDiagonaleDG(){
 template <typename T>
 std::ostream& operator << (std::ostream& os,const Matrice<T>& m){
     os << "[";
-    for( int i =0 ; i < m.size()-1;i++ ){
+    for( int i =0 ; i < m.size() - 1;i++ ){
         os << m.at(i) << ", ";
     }
-    os << m.at(m.size()) << "]";
+    os << m.at(m.size() - 1) << "]";
     return os;
 }
 

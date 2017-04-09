@@ -17,12 +17,25 @@ Vecteur<T>::Vecteur(const size_t& n)
 
 template<typename T>
 Vecteur<T>::Vecteur(const std::vector<T>& vect)
-: vecteur(vect) {}
+{
+   this->taille = vect.size();
+   this->vecteur.resize(vect.size());
+   for(size_t i = 0; i < taille; i++)
+   {
+      vecteur.at(i) = vect[i];
+   }
+}
 
 template<typename T>
+const T& Vecteur<T>::at(size_t n) const // Lecture
+{
+   return this->vecteur[n];
+}
+
+template<typename T> // Ecriture
 T& Vecteur<T>::at(size_t n)
 {
-   return this->vecteur.at(n);
+   return this->vecteur[n];
 }
 
 template<typename T>
@@ -45,9 +58,9 @@ template<typename T>
 T Vecteur<T>::somme() const
 {
    T somme = 0;
-   for(auto i = this->vecteur.begin(); i != this->vecteur.end(); i++)
+   for(size_t i = 0; i < taille; i++)
    {
-      somme += vecteur.at(i);
+      somme += vecteur[i];
    }
    return somme;
     
@@ -99,7 +112,7 @@ Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 template<typename T>
 Vecteur<T>& operator * (const T& val, Vecteur<T>& v2)
 {
-   for(size_t i = 0; i <= v2.size(); i++)
+   for(size_t i = 0; i < v2.size(); i++)
    {
       v2.at(i) = v2.at(i) * val;
    }

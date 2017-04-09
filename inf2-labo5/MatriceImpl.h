@@ -23,7 +23,7 @@ Matrice<T>::Matrice (unsigned int lignes)
 template <typename T>
 Matrice<T>::Matrice (unsigned int lignes, unsigned int colonnes)
 {
-    matrice=vector<vector<T>>(lignes);
+    matrice = vector<vector<T>>(lignes);
 }
 
 template <typename T>

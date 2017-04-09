@@ -35,25 +35,25 @@ template<typename T>
 class Vecteur
 {
 public:
-    // Constructeurs par défaut
-    Vecteur(const size_t& n);
-    Vecteur(const std::vector<T>& vect);
+   // Constructeurs par défaut
+   Vecteur(const size_t& n);
+   Vecteur(const std::vector<T>& vect);
     
-    // Surcharge d'opérateurs
-    friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect);
-    friend Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2);
-    friend Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2);
-    friend Vecteur<T>& operator * (const T& val, const Vecteur<T>& v2); // valeur
-    friend Vecteur<T>& operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
-
+   // Surcharge d'opérateurs
+   friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect);
+   friend Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2);
+   friend Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2);
+   friend Vecteur<T>& operator * (const T& val, const Vecteur<T>& v2); // valeur
+   friend Vecteur<T>& operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
     
-    T& at(size_t n); // Lecture et écriture!
-    size_t size() const;
-    void resize(size_t taille);
-    T somme() const;
+   const T& at(size_t n) const; // Lecture
+   T& at(size_t n); // Ecriture
+   size_t size() const;
+   void resize(size_t taille);
+   T somme() const;
     
 private:
-   long taille;
+   size_t taille;
    std::vector<T> vecteur;
 };
 

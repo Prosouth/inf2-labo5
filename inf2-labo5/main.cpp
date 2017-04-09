@@ -22,15 +22,15 @@ void affichervector(const vector<T>& vect){
 
 int main() 
 {
-    vector<vector<int>>  vectNotes = {{1,2,3},{4,5,6},{7,8,9}};
+    vector<vector<int>> vectNotes = {{1,2,3},{4,5,6},{7,8,9}};
     vector<vector<int>> vectIdentite = {{1,0,0,0},
-                                          {0,1,0,0},
-                                          {0,0,1,0},
-                                          {0,0,0,1}};
-    vector<vector<int>> vectAleatoire ={ {1,2,3,4,5},
-                                           {6,7,8,9,10},
-                                           {10,9,8,7,6},
-                                           {5,4,3,2,1} };
+                                       {0,1,0,0},
+                                       {0,0,1,0},
+                                       {0,0,0,1}};
+    vector<vector<int>> vectAleatoire ={{1,2,3,4,5},
+                                        {6,7,8,9,10},
+                                        {10,9,8,7,6},
+                                        {5,4,3,2,1} };
     Matrice<int> matrice(5,5);
     Matrice<int> matrice2(vectNotes);
     Matrice<int> matriceIdentite(vectIdentite);
@@ -60,5 +60,34 @@ int main()
     
     cout << matriceIdentite.sommeDiagonaleGD() << endl;
     cout << matriceIdentite.sommeDiagonaleDG() << endl;
+    
+    
+    
+    
+    //##############################################################3
+    // Tests pour les vecteurs
+    vector<int> v1 = {1,2,3,4,5,6,7,8,9,10};
+    vector<int> v2 = {2,23,45,3,2,4,56,77,3,3};
+    vector<int> vide = {0,0,0,0,0,0,0,0,0,0};
+    
+    Vecteur<int> vect1(v1);
+    Vecteur<int> vect2(v2);
+    cout << vect1 << endl;
+    cout << "La somme de vect1 est de : ";
+    cout << vect1.somme() << endl;
+    cout << "Affichage vect1.at(2) : " << vect1.at(2) << endl;
+    
+    cout << vect2 << endl;
+    cout << "La somme de vect2 est de : ";
+    cout << vect2.somme() << endl;
+    
+    cout << "2 * vect1 = " << (2 * vect1) << endl;
+    //cout << "vect1 * vect2 = " << (vect1 * vect2) << endl;
+    Vecteur<int> vect3(vide);
+    //cout << vect1 + vect2;
+    //cout << vect2 - vect1 << endl;
+    
+    cout << "v1 + v2 = " << vect3 << endl;
+    
     return EXIT_SUCCESS;
 }

@@ -20,13 +20,13 @@ template <typename T>
 std::ostream& operator << (std::ostream& os, const Matrice<T>& m);
 
 template <typename T>
-Matrice<T>& operator * (Matrice <T>& m1, const Matrice<T>& m2);
+Matrice<T> operator * (const Matrice <T>& m1);
 
 template <typename T>
-Matrice<T>& operator * (Matrice <T>& m1, const T& val);
+Matrice<T> operator * (Matrice <T>& m1, const T& val);
 
 template <typename T>
-Matrice<T>& operator + (const Matrice<T>& m1, const Matrice<T>& m2);
+Matrice<T> operator + (const Matrice<T>& m1);
 
 template <typename T>
 class Matrice {

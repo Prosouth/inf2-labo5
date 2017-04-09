@@ -25,20 +25,20 @@ Vecteur<T>::Vecteur(const std::vector<T>& vect)
    this->vecteur.resize(vect.size());
    for(size_t i = 0; i < taille; i++)
    {
-      vecteur.at(i) = vect[i];
+      vecteur.at(i) = vect.at(i);
    }
 }
 
 template<typename T>
 const T& Vecteur<T>::at(size_t n) const // Lecture
 {
-   return this->vecteur[n];
+   return this->vecteur.at(n);
 }
 
 template<typename T> // Ecriture
 T& Vecteur<T>::at(size_t n)
 {
-   return this->vecteur[n];
+   return this->vecteur.at(n);
 }
 
 template<typename T>
@@ -63,7 +63,7 @@ T Vecteur<T>::somme() const
    T somme = 0;
    for(size_t i = 0; i < taille; i++)
    {
-      somme += vecteur[i];
+      somme += vecteur.at(i);
    }
    return somme;
     
@@ -83,7 +83,7 @@ std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 }
 
 template<typename T>
-Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T> operator + (const Vecteur<T>& v1,const Vecteur<T>& v2)
 {
    Vecteur<T> vectFinal(v1.size());
    if(v1.size() == v2.size())
@@ -98,7 +98,7 @@ Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
 }
 
 template<typename T>
-Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
    Vecteur<T> vectFinal(v1.size());
    if(v1.size() == v2.size())
@@ -113,7 +113,7 @@ Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 }
 
 template<typename T>
-Vecteur<T>& operator * (const T& val, Vecteur<T>& v2)
+Vecteur<T> operator * (const T& val, Vecteur<T>& v2)
 {
    for(size_t i = 0; i < v2.size(); i++)
    {
@@ -123,7 +123,7 @@ Vecteur<T>& operator * (const T& val, Vecteur<T>& v2)
 }// valeur
 
 template<typename T>
-Vecteur<T>& operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
    Vecteur<T> vTemp(v1.size());
    if(v1.size() == v2.size())

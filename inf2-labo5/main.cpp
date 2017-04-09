@@ -22,6 +22,10 @@ void affichervector(const vector<T>& vect){
 
 int main() 
 {
+    
+    //##############################################################3
+    // Tests pour les matrices
+    
     vector<vector<int>> vectNotes = {{1,2,3},{4,5,6},{7,8,9}};
     vector<vector<int>> vectIdentite = {{1,0,0,0},
                                        {0,1,0,0},
@@ -35,7 +39,7 @@ int main()
     Matrice<int> matrice2(vectNotes);
     Matrice<int> matriceIdentite(vectIdentite);
     Matrice<int> matriceAleatoire(vectAleatoire);
-    //Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
+    Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
     
     Vecteur<int> noteLaboratoire(10);
     //noteLaboratoire.
@@ -56,7 +60,7 @@ int main()
     affichervector(matriceIdentite.sommeColonne());
     affichervector(matriceAleatoire.sommeLigne());
     
-    //cout << addMatrice << endl;
+    cout << addMatrice << endl;
     
     cout << matriceIdentite.sommeDiagonaleGD() << endl;
     cout << matriceIdentite.sommeDiagonaleDG() << endl;
@@ -72,20 +76,22 @@ int main()
     
     Vecteur<int> vect1(v1);
     Vecteur<int> vect2(v2);
-    cout << vect1 << endl;
+    cout << "Vect 1 :" << vect1 << endl;
     cout << "La somme de vect1 est de : ";
     cout << vect1.somme() << endl;
     cout << "Affichage vect1.at(2) : " << vect1.at(2) << endl;
     
-    cout << vect2 << endl;
+    cout << "Vect 2 :" << vect2 << endl;
     cout << "La somme de vect2 est de : ";
     cout << vect2.somme() << endl;
     
     cout << "2 * vect1 = " << (2 * vect1) << endl;
-   // cout << "vect1 * vect2 = " << (vect1 * vect2) << endl;
+    cout << "Vect 1 :" << vect1 << endl;
+
+    //cout << "vect1 * vect2 = " << (vect1 * vect2) << endl;
     Vecteur<int> vect3(vide);
-    //cout << vect1 + vect2;
-    //cout << vect2 - vect1 << endl;
+    cout << vect1 + vect2 << endl;
+    cout << vect2 - vect1 << endl;
     
     cout << "v1 + v2 = " << vect3 << endl;
     

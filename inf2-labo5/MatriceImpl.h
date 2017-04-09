@@ -195,9 +195,9 @@ Matrice<T> operator * (const Matrice <T>& m1, const Matrice<T>& m2)
     Matrice <T> matriceTemps= m1;
     for(int i = 0; i < m2.size(); i++)
     {
-        for(int j = 0; j <m2.size(); j++)
+        for(int j = 0; j <m2.at(i).size(); j++)
         {
-            m1.at(i).at(j) *= m2.at(i).at(j);
+            matriceTemps.at(i).at(j) = m1.at(i).at(j) * m2.at(i).at(j);
         }
     }
     return m1;
@@ -214,10 +214,11 @@ Matrice<T>  operator * (const Matrice <T>& m1, const T& val)
 }
 
 template <typename T>
-Matrice<T>&  operator + (const Matrice<T>& m1,const Matrice<T>& m2){
+Matrice<T>  operator + (const Matrice<T>& m1,const Matrice<T>& m2){
+    Matrice <T> matriceTemps;
     for(int i = 0; i < m1.size(); i++)
     {
-        m1.at(i) += m2.at(i);
+        m1.at(i) = m1.at(i) + m2.at(i);
     }
     return m1;// Je suis pas sûr que ça ne donne pas une 3ème matrice
     // M1 + M2 devrait donner M3 que tu retournes

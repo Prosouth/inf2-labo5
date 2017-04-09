@@ -57,7 +57,11 @@ template<typename T>
 std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 {
     os << "[";
-    
+    for(size_t i = 0; i < vect.size() - 1; i++)
+    {
+        os << vect.at(i) << ", ";
+    }
+    os << vect.at(vect.size() - 1) << "]";
     
     return os;
 }

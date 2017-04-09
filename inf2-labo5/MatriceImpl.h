@@ -181,7 +181,7 @@ template <typename T>
 std::ostream& operator << (std::ostream& os, const Matrice<T>& m)
 {
     os << "[";
-    for( int i = 0; i < m.size() - 1; i++)
+    for(int i = 0; i <= m.size() - 1; i++)
     {
         os << m.at(i) << ", ";
     }

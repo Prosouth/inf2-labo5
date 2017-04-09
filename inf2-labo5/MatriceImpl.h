@@ -205,7 +205,7 @@ Matrice<T>& operator * (const Matrice <T>& m1, const Matrice<T>& m2)
 template <typename T>
 Matrice<T>&  operator * (const Matrice <T>& m1, const T& val)
 {// les deux sens a faire (commutativite)
-    for(int i =0; i< m1.size(); i++)
+    for(int i = 0; i < m1.size(); i++)
     {
         m1.at(i) *= val;
     }

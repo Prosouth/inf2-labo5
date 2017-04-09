@@ -45,7 +45,7 @@ template<typename T>
 T Vecteur<T>::somme() const
 {
    T somme = 0;
-   for(size_t i = this->vecteur.begin(); i != this->vecteur.end(); i++)
+   for(auto i = this->vecteur.begin(); i != this->vecteur.end(); i++)
    {
       somme += vecteur.at(i);
    }
@@ -67,30 +67,41 @@ std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 }
 
 template<typename T>
-const Vecteur<T> operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
     Vecteur<T> vectFinal = v1 + v2;
     return vectFinal;
 }
 
 template<typename T>
-const Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
     Vecteur<T> vectFinal = v1 - v2;
     return vectFinal;
 }
 
 template<typename T>
-const Vecteur<T> operator * (const T& val, Vecteur<T>& v2)
+Vecteur<T>& operator * (const T& val, Vecteur<T>& v2)
 {
-    
+   for(size_t i = 0; i <= v2.size(); i++)
+   {
+      v2.at(i) = v2.at(i) * val;
+   }
+   return v2;
 }// valeur
 
 template<typename T>
-const Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T>& operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
-    
-    
+   Vecteur<T> vTemp(v1.size());
+   if(v1.size() == v2.size())
+   {
+      for(size_t i = 0; i <= v1.size(); i++)
+      {
+         vTemp.at(i) = v1.at(i) * v2.at(i);
+      }
+      return vTemp;
+   }
 }// vecteur
 
 #endif /* VecteurImpl_h */

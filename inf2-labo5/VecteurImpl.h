@@ -9,15 +9,8 @@
 #ifndef VecteurImpl_h
 #define VecteurImpl_h
 
-//
-//  Vecteur.cpp
-//  inf2-labo5
-//
-//  Created by Walid Koubaa on 05.04.17.
-//  Copyright © 2017 Walid. All rights reserved.
-//
-
 #include "Vecteur.hpp"
+#include <exception>
 
 template<typename T>
 Vecteur<T>::Vecteur(const size_t& n)
@@ -55,7 +48,7 @@ long Vecteur<T>::somme() const
 template<typename T>
 std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 {
-    //os << vect.
+    os << "[";
     
     
     return os;

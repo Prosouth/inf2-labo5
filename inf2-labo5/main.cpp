@@ -82,7 +82,7 @@ int main()
     cout << vect2.somme() << endl;
     
     cout << "2 * vect1 = " << (2 * vect1) << endl;
-    //cout << "vect1 * vect2 = " << (vect1 * vect2) << endl;
+   // cout << "vect1 * vect2 = " << (vect1 * vect2) << endl;
     Vecteur<int> vect3(vide);
     //cout << vect1 + vect2;
     //cout << vect2 - vect1 << endl;

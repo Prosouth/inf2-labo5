@@ -13,7 +13,10 @@
 
 template<typename T>
 Vecteur<T>::Vecteur(const size_t& n)
-: taille(n) {} // Vecteur initialisé avec la taille?
+: taille(n) 
+{
+   vecteur.resize(n);
+} // Vecteur initialisé avec la taille?
 
 template<typename T>
 Vecteur<T>::Vecteur(const std::vector<T>& vect)

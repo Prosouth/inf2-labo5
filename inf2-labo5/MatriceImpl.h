@@ -218,7 +218,8 @@ Matrice<T>&  operator + (const Matrice<T>& m1,const Matrice<T>& m2){
     {
         m1.at(i) += m2.at(i);
     }
-    return m1;
+    return m1;// Je suis pas sûr que ça ne donne pas une 3ème matrice
+    // M1 + M2 devrait donner M3 que tu retournes
 }
 
 #endif /* MatriceImpl_h */

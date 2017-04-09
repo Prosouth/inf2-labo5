@@ -69,14 +69,30 @@ std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 template<typename T>
 Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
-    Vecteur<T> vectFinal = v1 + v2;
+   Vecteur<T> vectFinal(v1.size());
+   if(v1.size() == v2.size())
+   {
+      for(size_t i = 0; i <= v1.size(); i++)
+      {
+         vectFinal.at(i) = v1.at(i) + v2.at(i);
+      }
+   }
+
     return vectFinal;
 }
 
 template<typename T>
 Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
-    Vecteur<T> vectFinal = v1 - v2;
+   Vecteur<T> vectFinal(v1.size());
+   if(v1.size() == v2.size())
+   {
+      for(size_t i = 0; i <= v1.size(); i++)
+      {
+         vectFinal.at(i) = v1.at(i) - v2.at(i);
+      }
+   }
+
     return vectFinal;
 }
 

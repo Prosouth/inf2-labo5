@@ -13,6 +13,24 @@
 #include <vector>
 #include <iostream>
 
+template <typename T>
+class Vecteur;
+
+template <typename T>
+std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect);
+
+template <typename T>
+Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2);
+
+template <typename T>
+Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2);
+
+template <typename T>
+Vecteur<T>& operator * (const T& val, const Vecteur<T>& v2); // valeur
+
+template <typename T>
+Vecteur<T>& operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
+
 template<typename T>
 class Vecteur
 {
@@ -22,18 +40,17 @@ public:
     Vecteur(const std::vector<T>& vect);
     
     // Surcharge d'opérateurs
-    friend std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect);
-    friend const Vecteur<T> operator + (const Vecteur<T>& v1, const Vecteur<T>& v2);
-    friend const Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2);
-    friend const Vecteur<T> operator * (const T& val, const Vecteur<T>& v2); // valeur
-    friend const Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
+    friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect);
+    friend Vecteur<T>& operator + (const Vecteur<T>& v1, const Vecteur<T>& v2);
+    friend Vecteur<T>& operator - (const Vecteur<T>& v1, const Vecteur<T>& v2);
+    friend Vecteur<T>& operator * (const T& val, const Vecteur<T>& v2); // valeur
+    friend Vecteur<T>& operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
 
     
-    T& at(size_t n) const;
+    T& at(size_t n); // Lecture et écriture!
     size_t size() const;
     void resize(size_t taille);
-    long somme() const;
-    
+    T somme() const;
     
 private:
    long taille;

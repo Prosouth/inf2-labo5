@@ -26,7 +26,7 @@ template <typename T>
 Matrice<T> operator * (Matrice <T>& m1, const T& val);
 
 template <typename T>
-Matrice<T> operator + (const Matrice<T>& m1);
+Matrice<T> operator + (const Matrice<T>& m1,const Matrice<T>& m2);
 
 template <typename T>
 class Matrice {

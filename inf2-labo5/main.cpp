@@ -60,7 +60,7 @@ int main()
     affichervector(matriceIdentite.sommeColonne());
     affichervector(matriceAleatoire.sommeLigne());
     
-    //cout << addMatrice << endl;
+//    cout << addMatrice << endl;
     
     cout << "La somme diagonale GD de la matrice identité est : " << matriceIdentite.sommeDiagonaleGD() << endl;
     cout << "La somme diagonale DG de la matrice identité est :" << matriceIdentite.sommeDiagonaleDG() << endl;

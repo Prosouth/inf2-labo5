@@ -79,6 +79,12 @@ T Vecteur<T>::somme() const
 }
 
 template<typename T>
+void Vecteur<T>::add(T elem)
+{
+   vecteur.push_back(elem);
+}
+
+template<typename T>
 std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 {
     os << "[";

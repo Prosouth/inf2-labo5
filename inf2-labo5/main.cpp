@@ -1,10 +1,17 @@
-//
-//  main.cpp
-//  inf2-labo5
-//
-//  Created by Walid Koubaa on 05.04.17.
-//  Copyright © 2017 Walid. All rights reserved.
-//
+/*
+ --------------------------------------------------------------------------------
+ 
+ Laboratoire        : INF2 Laboratoire n°5
+ Fichier            : main.cpp
+ Auteur(s)          : Walid Koubaa & Sebastien Saez
+ Classe             : INF2-C
+ Date de creation   : 07/04/2017
+ But                :
+ Remarque(s)        : 
+ Compilateur        : g++ (GCC) 6.3.1 20170306
+ 
+ --------------------------------------------------------------------------------
+ */
 #include <iostream>
 #include "Matrice.hpp"
 #include "Vecteur.hpp"
@@ -91,7 +98,7 @@ int main()
     cout << "La somme de vect2 est de : ";
     cout << vect2.somme() << endl;
     
-    //cout << "2 * vect1 = " << (2 * vect1) << endl;
+    cout << "2 * vect1 = " << vect1 * 2 << endl;
     cout << "Vect 1 :" << vect1 << endl;
 
     cout << "Multiplication de vecteurs :" << "vect1 * vect2 = " << (vect1 * vect2) << endl;
@@ -99,8 +106,6 @@ int main()
     cout << "Addition de vecteurs :" << vect1 + vect1 << endl;
     
     cout << "Sourstraction de vecteurs :" << vect1 - vect1 << endl;
-    
-    
     
     return EXIT_SUCCESS;
 }

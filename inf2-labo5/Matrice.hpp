@@ -20,13 +20,13 @@ template <typename T>
 std::ostream& operator << (std::ostream& os, const Matrice<T>& m);
 
 template <typename T>
-Matrice<T> operator * (const Matrice <T>& m1);
+Matrice<T> operator * (const Matrice <T>& m);
 
 template <typename T>
-Matrice<T> operator * (Matrice <T>& m1, const T& val);
+Matrice<T> operator * (const T& val);
 
 template <typename T>
-Matrice<T> operator + (const Matrice<T>& m1,const Matrice<T>& m2);
+Matrice<T>& operator + (const Matrice<T>& m);
 
 template <typename T>
 class Matrice {
@@ -38,6 +38,7 @@ public:
     Matrice (const std::vector<std::vector<T>>& newVector);
     
     const T& at(unsigned int position) const;
+    T& at(unsigned int position);
     unsigned int size() const;
     void resize(unsigned int nbLignes);
     void resize(unsigned int nbLignes, unsigned int nbColonnes);
@@ -53,9 +54,9 @@ public:
     T sommeDiagonaleDG();
     
     friend std::ostream& operator << <> (std::ostream& os,const Matrice<T>& m);
-    friend Matrice<T>& operator * (const Matrice <T>& m1, const Matrice<T>& m2);
-    friend Matrice<T>& operator * (const Matrice <T>& m1,const T& val);   // les deux sens a faire (commutativite)
-    friend Matrice<T>& operator + (const Matrice<T>& m1,const Matrice<T>& m2);
+    Matrice<T>& operator * ( const Matrice<T>& m);
+    Matrice<T>& operator * (const T& val);   // les deux sens a faire (commutativite)
+    Matrice<T>& operator +(const Matrice<T>& m);
     
 private:
     std::vector<std::vector<T>> matrice;

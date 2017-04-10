@@ -41,7 +41,6 @@ public:
     
    // Surcharge d'opérateurs
    friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect);
-<<<<<<< HEAD
    Vecteur<T> operator + (const Vecteur<T>& v1);
    Vecteur<T> operator - (const Vecteur<T>& v1);
    Vecteur<T> operator * (const T& val); // valeur

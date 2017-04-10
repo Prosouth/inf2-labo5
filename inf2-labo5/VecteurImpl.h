@@ -53,7 +53,9 @@ void Vecteur<T>::resize(size_t taille)
    if(this->taille > taille)
    {
       this->vecteur.resize(taille);
+      this->taille = taille;
    } // sinon on lance une exception
+   // S'il est plus petit
 }
 
 

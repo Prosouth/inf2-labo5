@@ -25,19 +25,23 @@ int main()
     
     //##############################################################3
     // Tests pour les matrices
+    vector<int> VectorNotes {1,2,3};
+    vector<int> VectorNotes2 {4,5,6};
+    vector<int> VectorNotes3 {7,8,9};
+    vector<vector<int>> VecteurNotes {VectorNotes,VectorNotes2,VectorNotes3};
+    Vecteur<vector<int>> VecteurNotesFinal = Vecteur<vector<int>>(VecteurNotes);
     
-    vector<vector<int>> vectNotes = {{1,2,3},{4,5,6},{7,8,9}};
-    vector<vector<int>> vectIdentite = {{1,0,0,0},
+    Vecteur<Vecteur<int>> VecteurIdentiteFinal = {{1,0,0,0},
                                        {0,1,0,0},
                                        {0,0,1,0},
                                        {0,0,0,1}};
-    vector<vector<int>> vectAleatoire ={{1,2,3,4,5},
+    Vecteur<Vecteur<int>> vectAleatoire ={{1,2,3,4,5},
                                         {6,7,8,9,10},
                                         {10,9,8,7,6},
                                         {5,4,3,2,1} };
     Matrice<int> matrice(5,5);
-    Matrice<int> matrice2(vectNotes);
-    Matrice<int> matriceIdentite(vectIdentite);
+    Matrice<int> matrice2(VecteurNotesFinal);
+    Matrice<int> matriceIdentite(VecteurIdentiteFinal);
     Matrice<int> matriceAleatoire(vectAleatoire);
     Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
     

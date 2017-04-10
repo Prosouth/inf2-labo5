@@ -17,17 +17,17 @@ using namespace std;
 template <typename T>
 Matrice<T>::Matrice (unsigned int lignes)
 {
-    matrice = vector<vector<T>>(lignes);
+    matrice = Vecteur<Vecteur<T>>(lignes);
 }
 
 template <typename T>
 Matrice<T>::Matrice (unsigned int lignes, unsigned int colonnes)
 {
-    matrice = vector<vector<T>>(lignes);
+    matrice = Vecteur<Vecteur<T>>(lignes);
 }
 
 template <typename T>
-Matrice<T>::Matrice (const vector<vector<T>>& newVector)
+Matrice<T>::Matrice (const Vecteur<Vecteur<T>>& newVector)
 {
     matrice = newVector;
 }
@@ -47,7 +47,7 @@ template <typename T>
 unsigned int Matrice<T>::size() const
 {
     unsigned int size = 0;
-    for(const vector<T>& vect: matrice)
+    for(const Vecteur<T>& vect: matrice)
     {
         size+= vect.size();
     }
@@ -86,7 +86,7 @@ bool Matrice<T>::estCarre() const
 template <typename T>
 bool Matrice<T>::estReguliere() const
 {
-    for (const vector<T>& t : matrice)
+    for (const Vecteur<T>& t : matrice)
     {
         if (t.size() != matrice.at(0).size())
         { // si la taille d'une des lignes n'est pas egale a la premiere alors la matrice n'est pas reguliere
@@ -114,9 +114,9 @@ void Matrice<T>::affect(const std::vector<vector<T>>& newVector){
 */
 
 template <typename T>
-vector<T> Matrice<T>::sommeLigne()
+Vecteur<T> Matrice<T>::sommeLigne()
 {
-    vector<T> tempMatrice(matrice.size());
+    Vecteur<T> tempMatrice(matrice.size());
     for(int i =0 ;i < tempMatrice.size();i++)
     {
         for(T& t : matrice.at(i))
@@ -128,9 +128,9 @@ vector<T> Matrice<T>::sommeLigne()
 }
 
 template <typename T>
-vector<T> Matrice<T>::sommeColonne()
+Vecteur<T> Matrice<T>::sommeColonne()
 {
-    vector<T> tempMatrice(matrice.size());
+    Vecteur<T> tempMatrice(matrice.size());
     for(int i =0 ; i < tempMatrice.size(); i++)
     {
         for(T& t : matrice.at(i))

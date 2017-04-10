@@ -35,8 +35,13 @@ int main()
     vector<int> VectorNotes {1,2,3};
     vector<int> VectorNotes2 {4,5,6};
     vector<int> VectorNotes3 {7,8,9};
-    vector<vector<int>> VecteurNotes {VectorNotes,VectorNotes2,VectorNotes3};
-    Vecteur<vector<int>> VecteurNotesFinal = Vecteur<vector<int>>(VecteurNotes);
+    
+    Vecteur<int> vecteurNotes(VectorNotes);
+    vecteurNotes.a
+    Vecteur<Vecteur<int>> VecteurNotesFinal (VectorNotes);
+    VecteurNotesFinal.pushback(VectorNotes);
+    VecteurNotesFinal.pushback(VectorNotes);
+
     
     Vecteur<Vecteur<int>> VecteurIdentiteFinal = {{1,0,0,0},
                                        {0,1,0,0},

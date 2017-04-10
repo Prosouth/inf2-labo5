@@ -133,8 +133,9 @@ Vecteur<T> Vecteur<T>::operator * (const Vecteur<T>& v2)
       {
          vTemp.at(i) = this->at(i) * v2.at(i);
       }
-      return vTemp;
+ 
    }
+    return vTemp;
 }// vecteur
 
 #endif /* VecteurImpl_h */

@@ -76,6 +76,8 @@ int main()
     
     Vecteur<int> vect1(v1);
     Vecteur<int> vect2(v2);
+    Vecteur<int> vect4(vide);
+    
     cout << "Vect 1 :" << vect1 << endl;
     cout << "La somme de vect1 est de : ";
     cout << vect1.somme() << endl;
@@ -85,15 +87,16 @@ int main()
     cout << "La somme de vect2 est de : ";
     cout << vect2.somme() << endl;
     
-    cout << "2 * vect1 = " << (2 * vect1) << endl;
+    //cout << "2 * vect1 = " << (2 * vect1) << endl;
     cout << "Vect 1 :" << vect1 << endl;
 
-    cout << "Addition de vecteurs :" << "vect1 * vect2 = " << (vect1 * vect2) << endl;
+    cout << "Multiplication de vecteurs :" << "vect1 * vect2 = " << (vect1 * vect2) << endl;
     Vecteur<int> vect3(vide);
-    cout << "Addition de vecteurs :" << vect1 + vect2 << endl;
-    cout << vect2 - vect1 << endl;
+    cout << "Addition de vecteurs :" << vect1 + vect1 << endl;
     
-    cout << "v1 + v2 = " << vect3 << endl;
+    cout << "Sourstraction de vecteurs :" << vect1 - vect1 << endl;
+    
+    
     
     return EXIT_SUCCESS;
 }

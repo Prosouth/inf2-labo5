@@ -85,14 +85,14 @@ std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 }
 
 template<typename T>
-Vecteur<T> operator + (const Vecteur<T>& v1,const Vecteur<T>& v2)
+Vecteur<T> Vecteur<T>::operator + (const Vecteur<T>& v2)
 {
-   Vecteur<T> vectFinal(v1.size());
-   if(v1.size() == v2.size())
+   Vecteur<T> vectFinal(this->size());
+   if(this->size() == v2.size())
    {
-      for(size_t i = 0; i < v1.size(); i++)
+      for(size_t i = 0; i < this->size(); i++)
       {
-         vectFinal.at(i) = v1.at(i) + v2.at(i);
+         vectFinal.at(i) = this->at(i) + v2.at(i);
       }
    }
 
@@ -100,39 +100,38 @@ Vecteur<T> operator + (const Vecteur<T>& v1,const Vecteur<T>& v2)
 }
 
 template<typename T>
-Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T> Vecteur<T>::operator - (const Vecteur<T>& v2)
 {
-   Vecteur<T> vectFinal(v1.size());
-   if(v1.size() == v2.size())
+   Vecteur<T> vectFinal(this->size());
+   if(this->size() == v2.size())
    {
-      for(size_t i = 0; i < v1.size(); i++)
+      for(size_t i = 0; i < this->size(); i++)
       {
-         vectFinal.at(i) = v1.at(i) - v2.at(i);
+         vectFinal.at(i) = this->at(i) - v2.at(i);
       }
    }
-
-    return vectFinal;
+   return vectFinal;
 }
 
 template<typename T>
-Vecteur<T> operator * (const T& val, Vecteur<T>& v2)
+Vecteur<T> Vecteur<T>::operator * (const T& val)
 {
-   for(size_t i = 0; i < v2.size(); i++)
+   for(size_t i = 0; i < this->size(); i++)
    {
-      v2.at(i) = v2.at(i) * val;
+      this->at(i) = this->at(i) * val;
    }
-   return v2;
+   return *this;
 }// valeur
 
 template<typename T>
-Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
+Vecteur<T> Vecteur<T>::operator * (const Vecteur<T>& v2)
 {
-   Vecteur<T> vTemp(v1.size());
-   if(v1.size() == v2.size())
+   Vecteur<T> vTemp(this->size());
+   if(this->size() == v2.size())
    {
-      for(size_t i = 0; i < v1.size(); i++)
+      for(size_t i = 0; i < this->size(); i++)
       {
-         vTemp.at(i) = v1.at(i) * v2.at(i);
+         vTemp.at(i) = this->at(i) * v2.at(i);
       }
       return vTemp;
    }

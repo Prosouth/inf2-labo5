@@ -57,6 +57,7 @@ public:
    size_t size() const;
    void resize(size_t taille);
    T somme() const;
+   void add(T elem);
     
 private:
    size_t taille;

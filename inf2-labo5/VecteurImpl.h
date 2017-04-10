@@ -90,7 +90,7 @@ Vecteur<T> operator + (const Vecteur<T>& v1,const Vecteur<T>& v2)
    Vecteur<T> vectFinal(v1.size());
    if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i <= v1.size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
          vectFinal.at(i) = v1.at(i) + v2.at(i);
       }
@@ -105,7 +105,7 @@ Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
    Vecteur<T> vectFinal(v1.size());
    if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i <= v1.size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
          vectFinal.at(i) = v1.at(i) - v2.at(i);
       }
@@ -130,7 +130,7 @@ Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
    Vecteur<T> vTemp(v1.size());
    if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i <= v1.size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
          vTemp.at(i) = v1.at(i) * v2.at(i);
       }

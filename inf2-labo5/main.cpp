@@ -39,7 +39,7 @@ int main()
     Matrice<int> matrice2(vectNotes);
     Matrice<int> matriceIdentite(vectIdentite);
     Matrice<int> matriceAleatoire(vectAleatoire);
-    //Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
+    Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
     
     Vecteur<int> noteLaboratoire(10);
     //noteLaboratoire.
@@ -60,7 +60,7 @@ int main()
     affichervector(matriceIdentite.sommeColonne());
     affichervector(matriceAleatoire.sommeLigne());
     
-//    cout << addMatrice << endl;
+    cout << addMatrice << endl;
     
     cout << "La somme diagonale GD de la matrice identité est : " << matriceIdentite.sommeDiagonaleGD() << endl;
     cout << "La somme diagonale DG de la matrice identité est :" << matriceIdentite.sommeDiagonaleDG() << endl;

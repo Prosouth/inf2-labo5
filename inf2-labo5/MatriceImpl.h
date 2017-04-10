@@ -39,6 +39,11 @@ const T& Matrice<T>::at(unsigned int position) const
 }
 
 template <typename T>
+T& Matrice<T>::at(unsigned int position){
+    return matrice.at(position / matrice.size()).at(position % matrice.size());
+}
+
+template <typename T>
 unsigned int Matrice<T>::size() const
 {
     unsigned int size = 0;
@@ -190,37 +195,36 @@ std::ostream& operator << (std::ostream& os, const Matrice<T>& m)
 }
 
 template <typename T>
-Matrice<T> operator * (const Matrice <T>& m1, const Matrice<T>& m2)
+Matrice<T>& Matrice<T>::operator * ( const Matrice<T>& m)
 {
-    Matrice <T> matriceTemps= m1;
-    for(int i = 0; i < m2.size(); i++)
+    Matrice <T> matriceTemps= m;
+    for(int i = 0; i < m.size(); i++)
     {
-        for(int j = 0; j <m2.at(i).size(); j++)
+        for(int j = 0; j <(*this).at(i).size(); j++)
         {
-            matriceTemps.at(i).at(j) = m1.at(i).at(j) * m2.at(i).at(j);
+            matriceTemps.at(i).at(j) = m.at(i).at(j) * (*this).at(i).at(j);
         }
     }
-    return m1;
+    return matriceTemps;
 }
 
 template <typename T>
-Matrice<T>  operator * (const Matrice <T>& m1, const T& val)
+Matrice<T>& Matrice<T>::operator * (const T& val)
 {// les deux sens a faire (commutativite)
-    for(int i = 0; i < m1.size(); i++)
+    for(int i = 0; i < (*this).size(); i++)
     {
-        m1.at(i) *= val;
+        (*this).at(i) *= val;
     }
-    return m1;
+    return *this;
 }
 
 template <typename T>
-Matrice<T>  operator + (const Matrice<T>& m1,const Matrice<T>& m2){
-    Matrice <T> matriceTemps;
-    for(int i = 0; i < m1.size(); i++)
+Matrice<T>&  Matrice<T>::operator + (const Matrice<T>& m){
+    for(int i = 0; i < m.size(); i++)
     {
-        m1.at(i) = m1.at(i) + m2.at(i);
+        (*this).at(i) +=  m.at(i);
     }
-    return m1;// Je suis pas sûr que ça ne donne pas une 3ème matrice
+    return *this;// Je suis pas sûr que ça ne donne pas une 3ème matrice
     // M1 + M2 devrait donner M3 que tu retournes
 }
 

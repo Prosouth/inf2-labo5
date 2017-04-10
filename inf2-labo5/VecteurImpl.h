@@ -1,10 +1,18 @@
-//
-//  VecteurImpl.h
-//  inf2-labo5
-//
-//  Created by Walid Koubaa on 07.04.17.
-//  Copyright © 2017 Walid. All rights reserved.
-//
+/*
+ --------------------------------------------------------------------------------
+ 
+ Laboratoire        : INF2 Laboratoire n°5
+ Fichier            : VecteurImpl.h
+ Auteur(s)          : Walid Koubaa & Sebastien Saez
+ Classe             : INF2-C
+ Date de creation   : 07/04/2017
+ But                :
+ Remarque(s)        : 
+ Compilateur        : g++ (GCC) 6.3.1 20170306
+ 
+ --------------------------------------------------------------------------------
+ */
+
 #ifndef VecteurImpl_h
 #define VecteurImpl_h
 

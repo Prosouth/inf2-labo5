@@ -104,14 +104,14 @@ std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 }
 
 template<typename T>
-Vecteur<T> Vecteur<T>::operator + (const Vecteur<T>& v2)
+Vecteur<T> operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
-   Vecteur<T> vectFinal(this->size());
-   if(this->size() == v2.size())
+   Vecteur<T> vectFinal(v1.size());
+   if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i < this->size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
-         vectFinal.at(i) = this->at(i) + v2.at(i);
+         vectFinal.at(i) = v1.at(i) + v2.at(i);
       }
    }
 
@@ -119,14 +119,14 @@ Vecteur<T> Vecteur<T>::operator + (const Vecteur<T>& v2)
 }
 
 template<typename T>
-Vecteur<T> Vecteur<T>::operator - (const Vecteur<T>& v2)
+Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
-   Vecteur<T> vectFinal(this->size());
-   if(this->size() == v2.size())
+   Vecteur<T> vectFinal(v1.size());
+   if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i < this->size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
-         vectFinal.at(i) = this->at(i) - v2.at(i);
+         vectFinal.at(i) = v1.at(i) - v2.at(i);
       }
    }
    return vectFinal;
@@ -141,7 +141,6 @@ Vecteur<T> operator * (const T& val, Vecteur<T>& v1)
    }
    return v1;
 }// valeur
-
 
 template<typename T>
 Vecteur<T> operator * (Vecteur<T>& v1, const T& val)

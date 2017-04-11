@@ -26,10 +26,10 @@ template <typename T>
 std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect);
 
 template <typename T>
-Vecteur<T> operator + (const Vecteur<T>& v);
+Vecteur<T> operator + (const Vecteur<T>& v1, const Vecteur<T>& v2);
 
 template <typename T>
-Vecteur<T> operator - (const Vecteur<T>& v);
+Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2);
 
 template <typename T>
 Vecteur<T> operator * (const T& val, Vecteur<T>& v1); // valeur
@@ -51,8 +51,8 @@ public:
     
    // Surcharge d'opérateurs
    friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect);
-   Vecteur<T> operator + (const Vecteur<T>& v1);
-   Vecteur<T> operator - (const Vecteur<T>& v1);
+   friend Vecteur<T> operator + <> (const Vecteur<T>& v1, const Vecteur<T>& v2);
+   friend Vecteur<T> operator - <> (const Vecteur<T>& v1, const Vecteur<T>& v2);
    friend Vecteur<T> operator * <> (const T& val, Vecteur<T>& v1); // valeur
    friend Vecteur<T> operator * <> (Vecteur<T>& v1, const T& val); // valeur bis
    friend Vecteur<T> operator * <> (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur

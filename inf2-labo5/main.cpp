@@ -46,7 +46,7 @@ int main()
     vector<Vecteur <int>> v {vecteurNotes};
     
     Vecteur<Vecteur<int>> VecteurNotesFinal {v};
-    VecteurNotesFinal.add(vecteurNotes);
+    VecteurNotesFinal.add(vecteurNotes2);
     VecteurNotesFinal.add(vecteurNotes3);
 
 
@@ -64,14 +64,14 @@ int main()
     vector<Vecteur <int>> vIdentite {vecteurIdentite};
     
     Vecteur<Vecteur<int>> vecteurIdentiteFinal {vIdentite};
-    VecteurNotesFinal.add(vecteurIdentite2);
-    VecteurNotesFinal.add(vecteurIdentite3);
-    VecteurNotesFinal.add(vecteurIdentite4);
+    vecteurIdentiteFinal.add(vecteurIdentite2);
+    vecteurIdentiteFinal.add(vecteurIdentite3);
+    vecteurIdentiteFinal.add(vecteurIdentite4);
 
     // Matrice aleatoire
     
     vector<int> vectorAl1 {1,2,3,4,5};
-    vector<int> vectorAl2 {6,7,8,9,10};
+     vector<int> vectorAl2 {6,7,8,9,10};
     vector<int> vectorAl3 {10,9,8,7,6};
     vector<int> vectorAl4 {5,4,3,2,1};
     
@@ -96,11 +96,10 @@ int main()
     Vecteur<int> noteLaboratoire(10);
     
     cout << matrice2.at(0).at(0)  << endl;
-    cout << matrice2.at(1) << endl;
-    cout << matrice2.at(2) << endl;
-    cout << matrice2.at(4) <<endl;
     cout << matrice2 << endl;
-    
+    cout << matriceIdentite << endl;
+    //cout << matriceAleatoire << endl;
+
     cout << "La matrice identité est elle régulière ? :" << (matriceIdentite.estReguliere() ? "oui": "non") << endl;
     cout << "La matrice identité est elle vide ? :" << (matriceIdentite.estVide() ? "oui": "non") << endl;
     affichervector(matriceIdentite.sommeColonne());
@@ -112,7 +111,7 @@ int main()
     //cout << "La somme diagonale DG de la matrice identité est :" << matriceIdentite.sommeDiagonaleDG() << endl;
     
     
-    
+    cout <<endl<<endl;
     
     //##############################################################
     // Tests pour les vecteurs

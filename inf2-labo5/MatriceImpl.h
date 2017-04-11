@@ -41,22 +41,21 @@ Matrice<T>::Matrice (const Vecteur<Vecteur<T>>& newVector)
 template <typename T>
 const Vecteur<T>& Matrice<T>::at(unsigned int position) const
 {
-    return matrice.at(position / matrice.size());
+    return matrice.at(position);
 }
 
 template <typename T>
 Vecteur<T>& Matrice<T>::at(unsigned int position){
-    return matrice.at(position / matrice.size());
+    return matrice.at(position);
 }
 
 template <typename T>
 unsigned int Matrice<T>::size() const
 {
     unsigned int size = 0;
-    for (int i=0; i< matrice.size(); i++)
-        
+    for (int i=0; i< matrice.at(0).size(); i++)
     {
-        size+= matrice.at(i).size();
+        size+= i;
     }
     return (unsigned int) size;
 }
@@ -117,9 +116,9 @@ template <typename T>
 Vecteur<T> Matrice<T>::sommeLigne()
 {
     Vecteur<T> tempMatrice(matrice.size());
-    for(int i =0 ;i < tempMatrice.size();i++)
+    for(int i =0 ;i < matrice.size();i++)
     {
-        for (int j=0; j< matrice.size(); j++)
+        for (int j=0; j< matrice.at(i).size(); j++)
 
         {
             tempMatrice.at(i) += matrice.at(i).at(j);
@@ -187,12 +186,11 @@ T Matrice<T>::sommeDiagonaleDG()
 template <typename T>
 std::ostream& operator << (std::ostream& os, const Matrice<T>& m)
 {
-    os << "[";
-    for(int i = 0; i <= m.size() - 1; i++)
+    for(int i = 0; i < m.size() - 1; i++)
     {
-        os << m.at(i) << ", ";
+        os << "|"<< m.at(i) << "|"<< endl;
     }
-    os << m.at(m.size() - 1) << "]";
+    os << "|"<< m.at(m.size() - 1) << "|";
     return os;
 }
 

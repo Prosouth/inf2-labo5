@@ -67,7 +67,6 @@ void Matrice<T>::resize(unsigned int nbLignes)
     matrice.resize(nbLignes);
 }
 
-
 template <typename T>
 void Matrice<T>::resize(unsigned int nbLignes, unsigned int nbColonnes)
 {

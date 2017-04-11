@@ -128,6 +128,7 @@ int main()
     cout << "La somme de vect1 est de : ";
     cout << vect1.somme() << endl;
     cout << "Affichage vect1.at(2) : " << vect1.at(2) << endl;
+    cout << "Multiplication de vecteurs :" << "vect1 * vect1 = " << (vect1 * vect1) << endl;
     
     cout << "Vect 2 :" << vect2 << endl;
     cout << "La somme de vect2 est de : ";
@@ -138,10 +139,7 @@ int main()
 
     cout << "Vect 1 :" << vect1 << endl;
 
-    cout << "Multiplication de vecteurs :" << "vect1 * vect2 = " << (vect1 * vect2) << endl;
-    Vecteur<int> vect3(vide);
     cout << "Addition de vecteurs :" << vect1 + vect1 << endl;
-    
     cout << "Sourstraction de vecteurs :" << vect1 - vect1 << endl;
     
     return EXIT_SUCCESS;

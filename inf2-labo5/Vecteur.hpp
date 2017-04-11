@@ -60,7 +60,7 @@ public:
    const T& at(size_t n) const; // Lecture
    T& at(size_t n); // Ecriture
    size_t size() const;
-   void resize(size_t taille);
+   void resize(int taille);
    T somme() const;
    void add(T elem);
     

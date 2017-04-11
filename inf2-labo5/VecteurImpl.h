@@ -29,7 +29,7 @@ Vecteur<T>::Vecteur(const size_t& n)
 : taille(n) 
 {
    vecteur.resize(n);
-} // Vecteur initialisé avec la taille?
+} 
 
 template<typename T>
 Vecteur<T>::Vecteur(const std::vector<T>& vect)
@@ -61,14 +61,17 @@ size_t Vecteur<T>::size() const
 }
 
 template<typename T>
-void Vecteur<T>::resize(size_t taille)
+void Vecteur<T>::resize(int taille)
 {
-   if(this->taille > taille)
+   if(taille < 0)
+   {
+      //lance une exception
+   }
+   else
    {
       this->vecteur.resize(taille);
       this->taille = taille;
-   } // sinon on lance une exception
-   // S'il est plus petit
+   }
 }
 
 
@@ -88,6 +91,7 @@ template<typename T>
 void Vecteur<T>::add(T elem)
 {
    vecteur.push_back(elem);
+   taille++;
 }
 
 template<typename T>
@@ -159,7 +163,7 @@ Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
          vTemp.at(i) = v1.at(i) * v2.at(i);
       }
    }
-    return vTemp;
+   return vTemp;
 }// vecteur
 
 #endif /* VecteurImpl_h */

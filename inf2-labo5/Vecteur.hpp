@@ -32,10 +32,13 @@ template <typename T>
 Vecteur<T> operator - (const Vecteur<T>& v);
 
 template <typename T>
-Vecteur<T> operator * (const T& val); // valeur
+Vecteur<T> operator * (const T& val, Vecteur<T>& v1); // valeur
 
 template <typename T>
-Vecteur<T> operator * (const Vecteur<T>& v); // vecteur
+Vecteur<T> operator * (Vecteur<T>& v1, const T& val); // valeur bis
+
+template <typename T>
+Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
 
 template<typename T>
 class Vecteur
@@ -50,8 +53,9 @@ public:
    friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect);
    Vecteur<T> operator + (const Vecteur<T>& v1);
    Vecteur<T> operator - (const Vecteur<T>& v1);
-   Vecteur<T> operator * (const T& val); // valeur
-   Vecteur<T> operator * (const Vecteur<T>& v2); // vecteur
+   friend Vecteur<T> operator * <> (const T& val, Vecteur<T>& v1); // valeur
+   friend Vecteur<T> operator * <> (Vecteur<T>& v1, const T& val); // valeur bis
+   friend Vecteur<T> operator * <> (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
     
    const T& at(size_t n) const; // Lecture
    T& at(size_t n); // Ecriture

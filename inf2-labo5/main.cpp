@@ -133,7 +133,9 @@ int main()
     cout << "La somme de vect2 est de : ";
     cout << vect2.somme() << endl;
     
-    cout << "2 * vect1 = " << vect1 * 2 << endl;
+    cout << "vect1 * 2 = " << vect1 * 2 << endl;
+    cout << "2 * vect1 = " << 2 * vect1 << endl;
+
     cout << "Vect 1 :" << vect1 << endl;
 
     cout << "Multiplication de vecteurs :" << "vect1 * vect2 = " << (vect1 * vect2) << endl;

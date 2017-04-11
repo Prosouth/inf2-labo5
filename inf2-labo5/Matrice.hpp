@@ -41,10 +41,10 @@ public:
     Matrice() = default;
     Matrice (unsigned int lignes);
     Matrice (unsigned int lignes, unsigned int colonnes);
-    Matrice (const std::vector<std::vector<T>>& newVector);
+    Matrice (const Vecteur<Vecteur<T>>& newVector);
     
-    const T& at(unsigned int position) const;
-    T& at(unsigned int position);
+    const Vecteur<T>& at(unsigned int position) const;
+    Vecteur<T>& at(unsigned int position);
     unsigned int size() const;
     void resize(unsigned int nbLignes);
     void resize(unsigned int nbLignes, unsigned int nbColonnes);
@@ -54,8 +54,8 @@ public:
     
     //void push(unsigned int position,const T& valeur);
     void pop(unsigned int position,const T& valeur);
-    std::vector<T> sommeLigne();
-    std::vector<T> sommeColonne();
+    Vecteur<T> sommeLigne();
+    Vecteur<T> sommeColonne();
     T sommeDiagonaleGD();
     T sommeDiagonaleDG();
     
@@ -65,7 +65,7 @@ public:
     Matrice<T>& operator +(const Matrice<T>& m);
     
 private:
-    std::vector<std::vector<T>> matrice;
+    Vecteur<Vecteur<T>> matrice;
 };
 
 #include "MatriceImpl.h"

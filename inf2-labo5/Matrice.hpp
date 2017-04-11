@@ -37,8 +37,8 @@ public:
     Matrice (unsigned int lignes, unsigned int colonnes);
     Matrice (const Vecteur<Vecteur<T>>& newVector);
     
-    const T& at(unsigned int position) const;
-    T& at(unsigned int position);
+    const Vecteur<T>& at(unsigned int position) const;
+    Vecteur<T>& at(unsigned int position);
     unsigned int size() const;
     void resize(unsigned int nbLignes);
     void resize(unsigned int nbLignes, unsigned int nbColonnes);

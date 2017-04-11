@@ -42,6 +42,7 @@ class Vecteur
 {
 public:
    // Constructeurs par défaut
+   Vecteur();
    Vecteur(const size_t& n);
    Vecteur(const std::vector<T>& vect);
     

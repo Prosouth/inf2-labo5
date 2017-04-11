@@ -18,6 +18,12 @@
 #include "Vecteur.hpp"
 #include <exception>
 
+
+template<typename T>
+Vecteur<T>::Vecteur(){
+    vecteur = std::vector<T>{};
+}
+
 template<typename T>
 Vecteur<T>::Vecteur(const size_t& n)
 : taille(n) 

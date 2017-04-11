@@ -53,10 +53,10 @@ template <typename T>
 unsigned int Matrice<T>::size() const
 {
     unsigned int size = 0;
-    for (int i=0; i< matrice.size(); i++)
+    for (int i = 0; i < matrice.size(); i++)
         
     {
-        size+= matrice.at(i).size();
+        size += matrice.at(i).size();
     }
     return (unsigned int) size;
 }
@@ -69,7 +69,7 @@ void Matrice<T>::resize(unsigned int nbLignes)
 
 
 template <typename T>
-void Matrice<T>::resize(unsigned int nbLignes,unsigned int nbColonnes)
+void Matrice<T>::resize(unsigned int nbLignes, unsigned int nbColonnes)
 {
     matrice.resize(nbLignes);
     for(vector<T>& vect : matrice)
@@ -81,7 +81,7 @@ void Matrice<T>::resize(unsigned int nbLignes,unsigned int nbColonnes)
 template <typename T>
 bool Matrice<T>::estVide() const 
 {
-    return matrice.size()==0; //&& vectColonnes.size()==0; // on regarde les lignes avant les colonnes au cas ou le constucteur avec les lignes seulement est appelle car celui avec les colonnes n'existe pas
+    return matrice.size() == 0; //&& vectColonnes.size()==0; // on regarde les lignes avant les colonnes au cas ou le constucteur avec les lignes seulement est appelle car celui avec les colonnes n'existe pas
 }
 
 template <typename T>
@@ -93,7 +93,7 @@ bool Matrice<T>::estCarre() const
 template <typename T>
 bool Matrice<T>::estReguliere() const
 {
-    for (int i=0; i< matrice.size(); i++)
+    for (int i = 0; i < matrice.size(); i++)
     {
         if (matrice.at(i).size() != matrice.at(0).size())
         { // si la taille d'une des lignes n'est pas egale a la premiere alors la matrice n'est pas reguliere
@@ -113,13 +113,14 @@ void Matrice<T>::pop(unsigned int position,const T& valeur)
 {
      matrice.at(position) = 0;
 }
+
 template <typename T>
 Vecteur<T> Matrice<T>::sommeLigne()
 {
     Vecteur<T> tempMatrice(matrice.size());
-    for(int i =0 ;i < tempMatrice.size();i++)
+    for(int i = 0 ;i < tempMatrice.size(); i++)
     {
-        for (int j=0; j< matrice.size(); j++)
+        for (int j = 0; j < matrice.size(); j++)
 
         {
             tempMatrice.at(i) += matrice.at(i).at(j);
@@ -132,9 +133,9 @@ template <typename T>
 Vecteur<T> Matrice<T>::sommeColonne()
 {
     Vecteur<T> tempMatrice(matrice.size());
-    for(int i =0 ; i < tempMatrice.size(); i++)
+    for(int i = 0; i < tempMatrice.size(); i++)
     {
-        for (int j=0; j< matrice.size(); j++)
+        for (int j = 0; j< matrice.size(); j++)
             
         {
             tempMatrice.at(i) += matrice.at(i).at(j);
@@ -148,14 +149,14 @@ T Matrice<T>::sommeDiagonaleGD()
 {
     if(!estReguliere())
     {
-        throw invalid_argument("Votre matrice n'est pas carré, la diagonale n'existe pas.");
+        throw invalid_argument("Votre matrice n'est pas carree, la diagonale n'existe pas.");
     }
     T sommeDiagonale = 0;
     for(int i = 0; i < matrice.size();i++)
     {
-        for(int j =0 ; j < matrice.at(i).size(); j++)
+        for(int j = 0; j < matrice.at(i).size(); j++)
         {
-            if(i==j)
+            if(i == j)
             {
             sommeDiagonale += matrice.at(i).at(j);
             }
@@ -179,7 +180,8 @@ T Matrice<T>::sommeDiagonaleDG()
             if(i == (matrice.at(i).size() - j))
             {
                 sommeDiagonale += matrice.at(i).at(j);
-            }        }
+            }        
+        }
     }
     return sommeDiagonale;
 }
@@ -224,10 +226,9 @@ template <typename T>
 Matrice<T>&  Matrice<T>::operator + (const Matrice<T>& m){
     for(int i = 0; i < m.size() ; i++)
     {
-        for(int j = 0; j < m.size() ; j++){
-            
-        matrice.at(i).at(j) +=  m.at(i).at(j);
-            
+        for(int j = 0; j < m.size(); j++)
+        {     
+            matrice.at(i).at(j) += m.at(i).at(j);
         }
     }
     return *this;

@@ -29,7 +29,7 @@ Vecteur<T>::Vecteur(const size_t& n)
 : taille(n) 
 {
    vecteur.resize(n);
-} // Vecteur initialisé avec la taille?
+} 
 
 template<typename T>
 Vecteur<T>::Vecteur(const std::vector<T>& vect)
@@ -61,14 +61,17 @@ size_t Vecteur<T>::size() const
 }
 
 template<typename T>
-void Vecteur<T>::resize(size_t taille)
+void Vecteur<T>::resize(int taille)
 {
-   if(this->taille > taille)
+   if(taille < 0)
+   {
+      //lance une exception
+   }
+   else
    {
       this->vecteur.resize(taille);
       this->taille = taille;
-   } // sinon on lance une exception
-   // S'il est plus petit
+   }
 }
 
 
@@ -88,6 +91,7 @@ template<typename T>
 void Vecteur<T>::add(T elem)
 {
    vecteur.push_back(elem);
+   taille++;
 }
 
 template<typename T>
@@ -104,14 +108,14 @@ std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect)
 }
 
 template<typename T>
-Vecteur<T> Vecteur<T>::operator + (const Vecteur<T>& v2)
+Vecteur<T> operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
-   Vecteur<T> vectFinal(this->size());
-   if(this->size() == v2.size())
+   Vecteur<T> vectFinal(v1.size());
+   if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i < this->size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
-         vectFinal.at(i) = this->at(i) + v2.at(i);
+         vectFinal.at(i) = v1.at(i) + v2.at(i);
       }
    }
 
@@ -119,42 +123,47 @@ Vecteur<T> Vecteur<T>::operator + (const Vecteur<T>& v2)
 }
 
 template<typename T>
-Vecteur<T> Vecteur<T>::operator - (const Vecteur<T>& v2)
+Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
-   Vecteur<T> vectFinal(this->size());
-   if(this->size() == v2.size())
+   Vecteur<T> vectFinal(v1.size());
+   if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i < this->size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
-         vectFinal.at(i) = this->at(i) - v2.at(i);
+         vectFinal.at(i) = v1.at(i) - v2.at(i);
       }
    }
    return vectFinal;
 }
 
 template<typename T>
-Vecteur<T> Vecteur<T>::operator * (const T& val)
+Vecteur<T> operator * (const T& val, Vecteur<T>& v1)
 {
-   for(size_t i = 0; i < this->size(); i++)
+   for(size_t i = 0; i < v1.size(); i++)
    {
-      this->at(i) = this->at(i) * val;
+      v1.at(i) = v1.at(i) * val;
    }
-   return *this;
+   return v1;
 }// valeur
 
 template<typename T>
-Vecteur<T> Vecteur<T>::operator * (const Vecteur<T>& v2)
+Vecteur<T> operator * (Vecteur<T>& v1, const T& val)
 {
-   Vecteur<T> vTemp(this->size());
-   if(this->size() == v2.size())
+   return val * v1;
+}
+
+template<typename T>
+Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
+{
+   Vecteur<T> vTemp(v1.size());
+   if(v1.size() == v2.size())
    {
-      for(size_t i = 0; i < this->size(); i++)
+      for(size_t i = 0; i < v1.size(); i++)
       {
-         vTemp.at(i) = this->at(i) * v2.at(i);
+         vTemp.at(i) = v1.at(i) * v2.at(i);
       }
- 
    }
-    return vTemp;
+   return vTemp;
 }// vecteur
 
 #endif /* VecteurImpl_h */

@@ -25,7 +25,7 @@ template <typename T>
 Matrice<T>::Matrice (int lignes)
 {
     if(lignes < 0)
-        throw std::invalid_argument("Le nombre de ligne ne peux pas etre negatif");
+        throw std::invalid_argument("Le nombre de ligne ne peut pas etre negatif");
     this->matrice = Vecteur<Vecteur<T>>(lignes);
 }
 
@@ -33,9 +33,9 @@ template <typename T>
 Matrice<T>::Matrice (int lignes, int colonnes)
 {
     if(lignes < 0)
-        throw std::invalid_argument("Le nombre de ligne ne peux pas etre negatif");
+        throw std::invalid_argument("Le nombre de ligne ne peut pas etre negatif");
     if(colonnes < 0)
-        throw std::invalid_argument("Le nombre de colonne ne peux pas etre negatif");
+        throw std::invalid_argument("Le nombre de colonne ne peut pas etre negatif");
     
     this->matrice = Vecteur<Vecteur<T>>(lignes);
 }
@@ -95,7 +95,9 @@ void Matrice<T>::resize(int nbLignes, int nbColonnes)
 template <typename T>
 bool Matrice<T>::estVide() const noexcept
 {
-    return matrice.size() == 0; //&& vectColonnes.size()==0; // on regarde les lignes avant les colonnes au cas ou le constucteur avec les lignes seulement est appelle car celui avec les colonnes n'existe pas
+    return matrice.size() == 0;  // on regarde les lignes avant les colonnes 
+    //au cas ou le constucteur avec les lignes seulement est appelle car celui 
+    //avec les colonnes n'existe pas
 }
 
 template <typename T>
@@ -110,7 +112,8 @@ bool Matrice<T>::estReguliere() const noexcept
     for (int i = 0; i < matrice.size(); i++)
     {
         if (matrice.at(i).size() != matrice.at(0).size())
-        { // si la taille d'une des lignes n'est pas egale a la premiere alors la matrice n'est pas reguliere
+        { // si la taille d'une des lignes n'est pas egale a la premiere 
+           //alors la matrice n'est pas régulière
             return false;
         }
     }
@@ -220,7 +223,7 @@ Matrice<T> operator * (const Matrice<T>& m1, const Matrice<T>& m2)
 
 template <typename T>
 Matrice<T> operator * (const T& val, Matrice<T>& m1)
-{// les deux sens a faire (commutativite)
+{
     for(int i = 0; i < m1.size(); i++)
     {
         for(int j = 0; j < m1.at(i).size(); j++)
@@ -243,10 +246,11 @@ Matrice<T> operator * (Matrice<T>& m1, const T& val)
 template <typename T>
 Matrice<T>  operator + (const Matrice<T>& m1, const Matrice<T>& m2)
 {
-    Matrice<T> matFinale ;
-    for(int i = 0; i < m1.size() ; i++)
+    Matrice<T> matFinale(m1.size());
+    for(int i = 0; i < m1.size(); i++)
     {
-            matFinale.at(i) = m1.at(i) + m2.at(i);
+       cout <<matFinale.at(0);
+            //matFinale.at(i) = m1.at(i) + m2.at(i);
     }
     return matFinale;
 }

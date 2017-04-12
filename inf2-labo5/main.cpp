@@ -72,7 +72,7 @@ int main()
     // Matrice aleatoire
     
     vector<int> vectorAl1 {1,2,3,4,5};
-     vector<int> vectorAl2 {6,7,8,9,10};
+    vector<int> vectorAl2 {6,7,8,9,10};
     vector<int> vectorAl3 {10,9,8,7,6};
     vector<int> vectorAl4 {5,4,3,2,1};
     
@@ -92,7 +92,7 @@ int main()
     Matrice<int> matrice (VecteurNotesFinal);
     Matrice<int> matriceIdentite (vecteurIdentiteFinal);
     Matrice<int> matriceAleatoire(vecteurAleatoireFinal);
-    //Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
+    //Matrice<int> addMatrice = matriceIdentite + matriceIdentite;
     Matrice<int> multMatrice = 2 * matrice;
     //Matrice<int> multMatrice2 = matrice * matrice;
 
@@ -136,7 +136,7 @@ int main()
     }
 
     
-    cout <<endl<<endl;
+    cout << endl << endl;
     
     cout << "Nous testons ici les potentielles exceptions que"
          << "l'on pourrait avoir avec une matrice mal instanciee :" << endl;

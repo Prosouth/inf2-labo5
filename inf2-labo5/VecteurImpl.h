@@ -91,7 +91,7 @@ T Vecteur<T>::somme() const
    for(size_t i = 0; i < taille; i++)
    {
       somme += vecteur.at(i);
-    if(sommeCheck > somme)      // cas ou on deborderait du maximum du type generique choisi
+    if(sommeCheck > somme)      // on deborderait du maximum du type generique choisi
         throw std::out_of_range("Depassement de capacite de la somme !");
        sommeCheck += vecteur.at(i);
    }
@@ -124,7 +124,7 @@ Vecteur<T> operator + (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
    Vecteur<T> vectFinal(v1.size());
     if(v1.size() != v2.size()){
-        throw std::invalid_argument("Taille des vecteurs incompatibles pour etre sommee");
+        throw std::invalid_argument("Taille de vecteur incompatible pour etre sommee");
     }
     for(size_t i = 0; i < v1.size(); i++)
     {
@@ -140,7 +140,7 @@ Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
    Vecteur<T> vectFinal(v1.size());
     if(v1.size() != v2.size()){
-        throw std::invalid_argument("Taille des vecteurs incompatibles pour etre soustraite");
+        throw std::invalid_argument("Taille de vecteur incompatible pour etre soustraite");
     }
     for(size_t i = 0; i < v1.size(); i++)
     {
@@ -171,7 +171,7 @@ Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2)
 {
    Vecteur<T> vTemp(v1.size());
     if(v1.size() != v2.size()){
-        throw std::invalid_argument("Taille des vecteurs incompatible pour etre multiplies");
+        throw std::invalid_argument("Taille des vecteur incompatible pour etre multipliee");
     }
     for(size_t i = 0; i < v1.size(); i++)
     {

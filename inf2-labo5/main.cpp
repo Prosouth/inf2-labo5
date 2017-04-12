@@ -136,10 +136,10 @@ int main()
     }
 
     
+    
     cout << endl << endl;
     
-    cout << "Nous testons ici les potentielles exceptions que"
-         << "l'on pourrait avoir avec une matrice mal instanciee :" << endl;
+    cout << "Nous testons ici les potentielles exceptions que l'on pourrait avoir avec une matrice mal instanciee :" << endl;
     
     
     

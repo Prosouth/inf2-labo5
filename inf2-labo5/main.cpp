@@ -5,8 +5,9 @@
  Fichier            : main.cpp
  Auteur(s)          : Walid Koubaa & Sebastien Saez
  Classe             : INF2-C
- Date de creation   : 07/04/2017
- But                :
+ Date de creation   : 12/04/2017
+ But                : Fichier principale main pour tester la bonne implementation
+                      des classes generiques Matrice et Vecteur
  Remarque(s)        : 
  Compilateur        : g++ (GCC) 6.3.1 20170306
  
@@ -109,6 +110,7 @@ int main()
          << (matriceIdentite.estCarre() ? "oui": "non") << endl;
 
     cout << "La somme de la colonne de la matrice identite 4x4 est : " << endl ;
+
     affichervector(matriceIdentite.sommeColonne());
     
     cout << "La somme de la ligne de la matrice identite 4x4 est : " << endl ;
@@ -117,14 +119,27 @@ int main()
     //cout << "Addition de matrices : " << matriceIdentite + matriceIdentite << endl;
     cout << "Multiplication de matrice n°1 par un scalaire: \n" << multMatrice << endl;
     //cout << "Multiplication de matrice n°1 par elle meme : \n" << multMatrice2 << endl;
-
-    cout << "La somme diagonale GD de la matrice identité 4x4 est : " << matriceIdentite.sommeDiagonaleGD() << endl;
-    cout << "La somme diagonale DG de la matrice identité 4x4 est : " << matriceIdentite.sommeDiagonaleDG() << endl;
+    try{
+    cout << "La somme diagonale GD de la matrice identité 4x4 est : "
+         << matriceIdentite.sommeDiagonaleGD() << endl;
+    }
+    catch(invalid_argument& e){
+        cout << e.what() << endl;
+    }
     
+    try{
+    cout << "La somme diagonale DG de la matrice identité 4x4 est : "
+         << matriceIdentite.sommeDiagonaleDG() << endl;
+    }
+    catch(invalid_argument& e){
+        cout << e.what() << endl;
+    }
+
     
     cout <<endl<<endl;
     
-    cout << "Nous testons ici les potentielles exceptions que l'on pourrait avoir avec une matrice mal instanciee :" << endl;
+    cout << "Nous testons ici les potentielles exceptions que"
+         << "l'on pourrait avoir avec une matrice mal instanciee :" << endl;
     
     
     
@@ -141,7 +156,7 @@ int main()
     cout << "Vect 1 :" << vect1 << endl;
     cout << "La somme de vect1 est de : ";
     cout << vect1.somme() << endl;
-    vect1.resize(-1);
+
     cout << "Affichage vect1.at(2) : " << vect1.at(2) << endl;
     cout << "Multiplication de vecteurs :" << "vect1 * vect1 = " << (vect1 * vect1) << endl;
     
@@ -156,6 +171,22 @@ int main()
 
     cout << "Addition de vecteurs :" << vect1 + vect1 << endl;
     cout << "Sourstraction de vecteurs :" << vect1 - vect1 << endl;
+    
+    
+    cout << "Test pour les exceptions :" << endl;
+
+    try{
+        vect1.at(6000);
+    }
+    catch(invalid_argument& e){
+        cout << e.what() << endl;
+    }
+    try{
+        vect1.resize(-9);
+    }
+    catch(invalid_argument& e){
+        cout << e.what() << endl;
+    }
     
     return EXIT_SUCCESS;
 }

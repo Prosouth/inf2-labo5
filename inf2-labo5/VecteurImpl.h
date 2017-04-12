@@ -5,9 +5,10 @@
  Fichier            : VecteurImpl.h
  Auteur(s)          : Walid Koubaa & Sebastien Saez
  Classe             : INF2-C
- Date de creation   : 07/04/2017
- But                :
- Remarque(s)        : 
+ Date de creation   : 12/04/2017
+ But                : Fichier definissant l'implementation de la classe generique Vecteur.
+ 
+ Remarque(s)        :
  Compilateur        : g++ (GCC) 6.3.1 20170306
  
  --------------------------------------------------------------------------------

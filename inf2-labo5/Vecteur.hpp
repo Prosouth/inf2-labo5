@@ -5,9 +5,14 @@
  Fichier            : Vecteur.hpp
  Auteur(s)          : Walid Koubaa & Sebastien Saez
  Classe             : INF2-C
- Date de creation   : 07/04/2017
- But                : Fichier 
- Remarque(s)        : 
+ Date de creation   : 12/04/2017
+ But                : Classe permettant la creation d'un objet generique Vecteur ayant pour
+                      parametre un vecteur de type generique T, et une taille.
+                      La classe met a disposition les operateur d'affichage de flux ainsi que divers
+                      operateurs effectuant des operations sur le vecteur crée, des getters
+                      et deux fonction pour la lecture et l'ecriture des elements de ce Vecteur generique.
+ 
+ Remarque(s)        :
  Compilateur        : g++ (GCC) 6.3.1 20170306
  
  --------------------------------------------------------------------------------

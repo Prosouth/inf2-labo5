@@ -5,8 +5,8 @@
  Fichier            : MatriceImpl.h
  Auteur(s)          : Walid Koubaa & Sebastien Saez
  Classe             : INF2-C
- Date de creation   : 07/04/2017
- But                :
+ Date de creation   : 12/04/2017
+ But                : Fichier definissant l'implementation de la classe generique Matrice.
  Remarque(s)        : 
  Compilateur        : g++ (GCC) 6.3.1 20170306
  

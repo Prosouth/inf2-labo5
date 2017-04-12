@@ -62,7 +62,7 @@ public:
     
     friend std::ostream& operator << <> (std::ostream& os,const Matrice<T>& m) noexcept;
     friend Matrice<T> operator * <> (const Matrice<T>& m1, const Matrice<T>& m2);
-    friend Matrice<T> operator * <> (const T& val, Matrice<T>& m1);   // les deux sens a faire (commutativite)
+    friend Matrice<T> operator * <> (const T& val, Matrice<T>& m1);  
     friend Matrice<T> operator * <> (Matrice<T>& m1, const T& val);
     friend Matrice<T> operator + <> (const Matrice<T>& m1, const Matrice<T>& m2);
     

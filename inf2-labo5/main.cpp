@@ -83,35 +83,50 @@ int main()
     vector<Vecteur <int>> vAl {vecteurAl1};
     
     Vecteur<Vecteur<int>> vecteurAleatoireFinal {vAl};
-    VecteurNotesFinal.add(vecteurAl2);
-    VecteurNotesFinal.add(vecteurAl3);
-    VecteurNotesFinal.add(vecteurAl4);
+    vecteurAleatoireFinal.add(vecteurAl2);
+    vecteurAleatoireFinal.add(vecteurAl3);
+    vecteurAleatoireFinal.add(vecteurAl4);
     
     
-    Matrice<int> matrice2 (VecteurNotesFinal);
+    Matrice<int> matrice (VecteurNotesFinal);
     Matrice<int> matriceIdentite (vecteurIdentiteFinal);
     Matrice<int> matriceAleatoire(vecteurAleatoireFinal);
     //Matrice<int> addMatrice= matriceIdentite + matriceIdentite;
-    
-    Vecteur<int> noteLaboratoire(10);
-    
-    cout << matrice2.at(0).at(0)  << endl;
-    cout << matrice2 << endl;
-    cout << matriceIdentite << endl;
-    //cout << matriceAleatoire << endl;
+    Matrice<int> multMatrice = 2 * matrice;
+    //Matrice<int> multMatrice2 = matrice * matrice;
 
-    cout << "La matrice identité est elle régulière ? :" << (matriceIdentite.estReguliere() ? "oui": "non") << endl;
-    cout << "La matrice identité est elle vide ? :" << (matriceIdentite.estVide() ? "oui": "non") << endl;
+    Vecteur<int> noteLaboratoire(10);
+    cout << matrice.at(0).at(0)  << endl;
+    
+    cout << "La matrice n°1 est :" << endl;
+    cout << matrice << endl;
+
+    cout << "La matrice identité est elle régulière ? :"
+         << (matriceIdentite.estReguliere() ? "oui": "non") << endl;
+    cout << "La matrice identité est elle vide ? :"
+         << (matriceIdentite.estVide() ? "oui": "non") << endl;
+    cout << "La matrice identité est elle carre ? :"
+         << (matriceIdentite.estCarre() ? "oui": "non") << endl;
+
+    cout << "La somme de la colonne de la matrice identite 4x4 est : " << endl ;
     affichervector(matriceIdentite.sommeColonne());
+    
+    cout << "La somme de la ligne de la matrice identite 4x4 est : " << endl ;
     affichervector(matriceAleatoire.sommeLigne());
     
-    //cout << matriceIdentite + matriceIdentite << endl;
-    
-    //cout << "La somme diagonale GD de la matrice identité est : " << matriceIdentite.sommeDiagonaleGD() << endl;
-    //cout << "La somme diagonale DG de la matrice identité est :" << matriceIdentite.sommeDiagonaleDG() << endl;
+    //cout << "Addition de matrices : " << matriceIdentite + matriceIdentite << endl;
+    cout << "Multiplication de matrice n°1 par un scalaire: \n" << multMatrice << endl;
+    //cout << "Multiplication de matrice n°1 par elle meme : \n" << multMatrice2 << endl;
+
+    cout << "La somme diagonale GD de la matrice identité 4x4 est : " << matriceIdentite.sommeDiagonaleGD() << endl;
+    cout << "La somme diagonale DG de la matrice identité 4x4 est : " << matriceIdentite.sommeDiagonaleDG() << endl;
     
     
     cout <<endl<<endl;
+    
+    cout << "Nous testons ici les potentielles exceptions que l'on pourrait avoir avec une matrice mal instanciee :" << endl;
+    
+    
     
     //##############################################################
     // Tests pour les vecteurs
@@ -126,6 +141,7 @@ int main()
     cout << "Vect 1 :" << vect1 << endl;
     cout << "La somme de vect1 est de : ";
     cout << vect1.somme() << endl;
+    vect1.resize(-1);
     cout << "Affichage vect1.at(2) : " << vect1.at(2) << endl;
     cout << "Multiplication de vecteurs :" << "vect1 * vect1 = " << (vect1 * vect1) << endl;
     

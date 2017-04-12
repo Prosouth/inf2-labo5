@@ -6,7 +6,7 @@
  Auteur(s)          : Walid Koubaa & Sebastien Saez
  Classe             : INF2-C
  Date de creation   : 07/04/2017
- But                :
+ But                : Fichier 
  Remarque(s)        : 
  Compilateur        : g++ (GCC) 6.3.1 20170306
  
@@ -23,7 +23,7 @@ template <typename T>
 class Vecteur;
 
 template <typename T>
-std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect);
+std::ostream& operator << (std::ostream& os, const Vecteur<T>& vect) noexcept;
 
 template <typename T>
 Vecteur<T> operator + (const Vecteur<T>& v1, const Vecteur<T>& v2);
@@ -32,10 +32,10 @@ template <typename T>
 Vecteur<T> operator - (const Vecteur<T>& v1, const Vecteur<T>& v2);
 
 template <typename T>
-Vecteur<T> operator * (const T& val, Vecteur<T>& v1); // valeur
+Vecteur<T> operator * (const T& val, Vecteur<T>& v1) noexcept; // valeur
 
 template <typename T>
-Vecteur<T> operator * (Vecteur<T>& v1, const T& val); // valeur bis
+Vecteur<T> operator * (Vecteur<T>& v1, const T& val) noexcept; // valeur bis
 
 template <typename T>
 Vecteur<T> operator * (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
@@ -50,16 +50,16 @@ public:
    Vecteur(const std::vector<T>& vect);
     
    // Surcharge d'opérateurs
-   friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect);
+   friend std::ostream& operator << <> (std::ostream& os, const Vecteur<T>& vect) noexcept;
    friend Vecteur<T> operator + <> (const Vecteur<T>& v1, const Vecteur<T>& v2);
    friend Vecteur<T> operator - <> (const Vecteur<T>& v1, const Vecteur<T>& v2);
-   friend Vecteur<T> operator * <> (const T& val, Vecteur<T>& v1); // valeur
-   friend Vecteur<T> operator * <> (Vecteur<T>& v1, const T& val); // valeur bis
+   friend Vecteur<T> operator * <> (const T& val, Vecteur<T>& v1) noexcept; // valeur
+   friend Vecteur<T> operator * <> (Vecteur<T>& v1, const T& val) noexcept; // valeur bis
    friend Vecteur<T> operator * <> (const Vecteur<T>& v1, const Vecteur<T>& v2); // vecteur
     
    const T& at(size_t n) const; // Lecture
    T& at(size_t n); // Ecriture
-   size_t size() const;
+   size_t size() const noexcept;
    void resize(int taille);
    T somme() const;
    void add(T elem);

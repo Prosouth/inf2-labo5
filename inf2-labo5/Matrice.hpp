@@ -23,46 +23,48 @@ template <typename T>
 class Matrice;
 
 template <typename T>
-std::ostream& operator << (std::ostream& os, const Matrice<T>& m);
+std::ostream& operator << (std::ostream& os, const Matrice<T>& m) noexcept;
 
 template <typename T>
-Matrice<T> operator * (const Matrice <T>& m);
+Matrice<T> operator * (const Matrice<T>& m1, const Matrice<T>& m2);
 
 template <typename T>
-Matrice<T> operator * (const T& val);
+Matrice<T> operator * (const T& val, Matrice<T>& m1);
 
 template <typename T>
-Matrice<T>& operator + (const Matrice<T>& m);
+Matrice<T> operator * (Matrice<T>& m1, const T& val);
+
+template <typename T>
+Matrice<T> operator + (const Matrice<T>& m1, const Matrice<T>& m2);
 
 template <typename T>
 class Matrice {
 
 public:
     Matrice() = default;
-    Matrice (unsigned int lignes);
-    Matrice (unsigned int lignes, unsigned int colonnes);
+    Matrice (int lignes);
+    Matrice (int lignes, int colonnes);
     Matrice (const Vecteur<Vecteur<T>>& newVector);
     
-    const Vecteur<T>& at(unsigned int position) const;
-    Vecteur<T>& at(unsigned int position);
-    unsigned int size() const;
-    void resize(unsigned int nbLignes);
-    void resize(unsigned int nbLignes, unsigned int nbColonnes);
-    bool estVide() const;
-    bool estCarre() const;
-    bool estReguliere() const;
+    const Vecteur<T>& at(int position) const;
+    Vecteur<T>& at(int position);
+    int size() const noexcept;
+    void resize(int nbLignes);
+    void resize(int nbLignes, int nbColonnes);
+    bool estVide() const noexcept;
+    bool estCarre() const noexcept;
+    bool estReguliere() const noexcept;
     
-    //void push(unsigned int position,const T& valeur);
-    void pop(unsigned int position,const T& valeur);
     Vecteur<T> sommeLigne();
     Vecteur<T> sommeColonne();
     T sommeDiagonaleGD();
     T sommeDiagonaleDG();
     
-    friend std::ostream& operator << <> (std::ostream& os,const Matrice<T>& m);
-    Matrice<T>& operator * ( const Matrice<T>& m);
-    Matrice<T>& operator * (const T& val);   // les deux sens a faire (commutativite)
-    Matrice<T>& operator +(const Matrice<T>& m);
+    friend std::ostream& operator << <> (std::ostream& os,const Matrice<T>& m) noexcept;
+    friend Matrice<T> operator * <> (const Matrice<T>& m1, const Matrice<T>& m2);
+    friend Matrice<T> operator * <> (const T& val, Matrice<T>& m1);   // les deux sens a faire (commutativite)
+    friend Matrice<T> operator * <> (Matrice<T>& m1, const T& val);
+    friend Matrice<T> operator + <> (const Matrice<T>& m1, const Matrice<T>& m2);
     
 private:
     Vecteur<Vecteur<T>> matrice;

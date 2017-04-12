@@ -12,6 +12,7 @@
  
  --------------------------------------------------------------------------------
  */
+
 #ifndef MatriceImpl_h
 #define MatriceImpl_h
 
@@ -21,14 +22,21 @@
 using namespace std;
 
 template <typename T>
-Matrice<T>::Matrice (unsigned int lignes)
+Matrice<T>::Matrice (int lignes)
 {
+    if(lignes < 0)
+        throw std::invalid_argument("Le nombre de ligne ne peux pas etre negatif");
     this->matrice = Vecteur<Vecteur<T>>(lignes);
 }
 
 template <typename T>
-Matrice<T>::Matrice (unsigned int lignes, unsigned int colonnes)
+Matrice<T>::Matrice (int lignes, int colonnes)
 {
+    if(lignes < 0)
+        throw std::invalid_argument("Le nombre de ligne ne peux pas etre negatif");
+    if(colonnes < 0)
+        throw std::invalid_argument("Le nombre de colonne ne peux pas etre negatif");
+    
     this->matrice = Vecteur<Vecteur<T>>(lignes);
 }
 
@@ -38,37 +46,45 @@ Matrice<T>::Matrice (const Vecteur<Vecteur<T>>& newVector)
     this->matrice = newVector;
 }
 
-template <typename T>
-const Vecteur<T>& Matrice<T>::at(unsigned int position) const
+template <typename T>                        // lecture
+const Vecteur<T>& Matrice<T>::at( int position) const
 {
+    if(position < 0 || position > (*this).size())
+        throw std::invalid_argument("Vous accedez a un emplacement non existant");
+    return matrice.at(position);
+}
+
+template <typename T>                       // ecriture
+Vecteur<T>& Matrice<T>::at(int position){
+    if(position < 0 || position > (*this).size())
+        throw std::invalid_argument("Vous ecrivez a un emplacement non existant");
     return matrice.at(position);
 }
 
 template <typename T>
-Vecteur<T>& Matrice<T>::at(unsigned int position){
-    return matrice.at(position);
-}
-
-template <typename T>
-unsigned int Matrice<T>::size() const
+int Matrice<T>::size() const noexcept
 {
-    unsigned int size = 0;
+    int size = 0;
     for (int i=0; i< matrice.at(0).size(); i++)
     {
         size+= i;
     }
-    return (unsigned int) size;
+    return size;
 }
 
 template <typename T>
-void Matrice<T>::resize(unsigned int nbLignes)
+void Matrice<T>::resize( int nbLignes)
 {
+    if(nbLignes < 0)
+        throw std::invalid_argument("Un nombre de lignes negatif est impossible");
     matrice.resize(nbLignes);
 }
 
 template <typename T>
-void Matrice<T>::resize(unsigned int nbLignes, unsigned int nbColonnes)
+void Matrice<T>::resize(int nbLignes, int nbColonnes)
 {
+    if(nbLignes < 0 || nbColonnes <0)
+        throw std::invalid_argument("Une taille negative est impossible");
     matrice.resize(nbLignes);
     for(vector<T>& vect : matrice)
     {
@@ -77,19 +93,19 @@ void Matrice<T>::resize(unsigned int nbLignes, unsigned int nbColonnes)
 }
 
 template <typename T>
-bool Matrice<T>::estVide() const 
+bool Matrice<T>::estVide() const noexcept
 {
     return matrice.size() == 0; //&& vectColonnes.size()==0; // on regarde les lignes avant les colonnes au cas ou le constucteur avec les lignes seulement est appelle car celui avec les colonnes n'existe pas
 }
 
 template <typename T>
-bool Matrice<T>::estCarre() const 
+bool Matrice<T>::estCarre() const noexcept
 {
     return matrice.size();//==vectColonnes.size();
 }
 
 template <typename T>
-bool Matrice<T>::estReguliere() const
+bool Matrice<T>::estReguliere() const noexcept
 {
     for (int i = 0; i < matrice.size(); i++)
     {
@@ -99,17 +115,6 @@ bool Matrice<T>::estReguliere() const
         }
     }
     return true;
-}
-/*
-template <typename T>
-void Matrice<T>::push(unsigned int position,const T& valeur){
-    matrice.at(position)=valeur;
-}
-*/
-template <typename T>
-void Matrice<T>::pop(unsigned int position,const T& valeur)
-{
-     matrice.at(position) = 0;
 }
 
 template <typename T>
@@ -185,7 +190,7 @@ T Matrice<T>::sommeDiagonaleDG()
 }
 
 template <typename T>
-std::ostream& operator << (std::ostream& os, const Matrice<T>& m)
+std::ostream& operator << (std::ostream& os, const Matrice<T>& m) noexcept
 {
     for(int i = 0; i < m.size() - 1; i++)
     {
@@ -196,39 +201,54 @@ std::ostream& operator << (std::ostream& os, const Matrice<T>& m)
 }
 
 template <typename T>
-Matrice<T>& Matrice<T>::operator * ( const Matrice<T>& m)
+Matrice<T> operator * (const Matrice<T>& m1, const Matrice<T>& m2)
 {
-    Matrice <T> matriceTemps= m;
-    for(int i = 0; i < m.size(); i++)
+    Matrice <T> matriceTemps;
+    for(int i = 0; i < m1.size(); i++)
     {
-        for(int j = 0; j < m.at(i).size(); j++)
+        for(int j = 0; j < m1.at(i).size(); j++)
         {
-            matriceTemps.at(i).at(j) = m.at(i).at(j) * (*this).at(i).at(j);
+            for(int k = 0; k < m2.at(i).size(); k++){
+
+            matriceTemps.at(i).at(j) = m1.at(i).at(k) * m1.at(k).at(j);
+            
+            }
         }
     }
     return matriceTemps;
 }
 
 template <typename T>
-Matrice<T>& Matrice<T>::operator * (const T& val)
+Matrice<T> operator * (const T& val, Matrice<T>& m1)
 {// les deux sens a faire (commutativite)
-    for(int i = 0; i < matrice.size(); i++)
+    for(int i = 0; i < m1.size(); i++)
     {
-        matrice.at(i) *= val;
+        for(int j = 0; j < m1.at(i).size(); j++)
+        {
+                m1.at(i).at(j) = val * m1.at(i).at(j);
+        }
+        
     }
-    return *this;
+    return m1;
 }
 
 template <typename T>
-Matrice<T>&  Matrice<T>::operator + (const Matrice<T>& m){
-    for(int i = 0; i < m.size() ; i++)
+Matrice<T> operator * (Matrice<T>& m1, const T& val)
+{
+    return val * m1;
+}
+
+
+
+template <typename T>
+Matrice<T>  operator + (const Matrice<T>& m1, const Matrice<T>& m2)
+{
+    Matrice<T> matFinale ;
+    for(int i = 0; i < m1.size() ; i++)
     {
-        for(int j = 0; j < m.size(); j++)
-        {     
-            matrice.at(i).at(j) += m.at(i).at(j);
-        }
+            matFinale.at(i) = m1.at(i) + m2.at(i);
     }
-    return *this;
+    return matFinale;
 }
 
 #endif /* MatriceImpl_h */
